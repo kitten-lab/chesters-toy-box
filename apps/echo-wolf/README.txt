@@ -25,10 +25,15 @@ ECHO-WOLF
 A listening wolf from the source.forest.
 
 OPERATING NOTES
-Run in your terminal with python3 the-listening-wolf.py
-He will form a DB for you.
+Run in your terminal with 
+     python3 the-listening-wolf.py
+
+He will CREATE a MEMORY LOG for you.
+
 Keep it.
 Or don't.
 
+
 WARNING / BEHAVIOR
-Currently listening and not doing much else.
+Currently listening.
+Not doing much else.
