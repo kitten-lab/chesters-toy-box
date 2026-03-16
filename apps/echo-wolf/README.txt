@@ -11,8 +11,24 @@
 =================================================
 
 ECHO WOLF IS A WELCOME LISTENING DEVICE.
+
 HE IS WORTH HAVING.
 HE IS NOT CONCERNING.
 HE IS KIND.
+
 BE NICE TO THE WOLF.
 HE REMEMBERS.
+
+========================================
+ECHO-WOLF
+========================================
+A listening wolf from the source.forest.
+
+OPERATING NOTES
+Run in your terminal with python3 the-listening-wolf.py
+He will form a DB for you.
+Keep it.
+Or don't.
+
+WARNING / BEHAVIOR
+Currently listening and not doing much else.
