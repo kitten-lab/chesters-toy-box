@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '/dataforestry/db.php';
 
 $tag = $_GET['tag'];
 
@@ -22,6 +22,7 @@ $stmt->bind_param("s", $tag);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
+
 <h2>Tag: <?php echo htmlspecialchars($tag); ?></h2>
 
 <?php while($row = $result->fetch_assoc()): ?>
@@ -42,5 +43,4 @@ Block <?php echo $row['block_id']; ?>
 
 <?php endwhile; ?>
 
-<a href="view_timbers.php">← Back</a>
-<?php include 'footer.php'; ?>
+<a href="/dataforestry/view_timbers.php">← Back</a>

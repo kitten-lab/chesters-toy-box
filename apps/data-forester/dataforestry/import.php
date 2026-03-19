@@ -2,9 +2,11 @@
 <html>
 <head>
     <title>Forestry Engine</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body><?php include 'header.php'; ?>
+<body>
+<?php include __DIR__ . '/../header.php'; ?>
+
 
 <h2>Enter a Prepared Log</h2>
 
@@ -22,7 +24,7 @@
     <button type="submit">Break into Timbers</button>
 </div>
 </form>
-<?php include 'footer.php'; ?>
+<?php include __DIR__ . '/../footer.php'; ?>
 
 </body>
 </html>

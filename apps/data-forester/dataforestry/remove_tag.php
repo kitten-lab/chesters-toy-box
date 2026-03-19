@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '/dataforestry/db.php';
 
 $timber_id = intval($_POST['timber_id']);
 $tag = $_POST['tag'];

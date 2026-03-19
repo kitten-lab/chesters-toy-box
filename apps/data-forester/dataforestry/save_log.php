@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include 'db.php';
+include '/dataforestry/db.php';
 
 $log = $_POST['log_content'];
 
@@ -67,7 +67,7 @@ foreach ($blocks as $block) {
     }
 }
 echo "<h3>Processed Log: $log_code</h3>";
-echo "<a href='index.php'>Back</a>";
+echo "<a href='/index.php'>Back</a>";
 
 ?>
 

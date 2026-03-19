@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '/dataforestry/db.php';
 
 $result = $conn->query("
     SELECT tags.id, tags.name, tags.type, COUNT(timber_tags.timber_id) as count
@@ -10,8 +10,8 @@ $result = $conn->query("
 ");
 ?>
 
-    <link rel="stylesheet" href="style.css">
-<?php include 'header.php'; ?>
+    <link rel="stylesheet" href="/css/style.css">
+<?php include '/header.php'; ?>
 
 <h2>Tags</h2>
 
@@ -26,7 +26,7 @@ $result = $conn->query("
     <?php echo htmlspecialchars($tag['name']); ?>
 </span>
 
-<a class="tag-view-btn" href="tag.php?tag=<?php echo urlencode($tag['name']); ?>">
+<a class="tag-view-btn" href="/dataforestry/tag.php?tag=<?php echo urlencode($tag['name']); ?>">
     View →
 </a>
 
@@ -68,4 +68,4 @@ function updateTagType(tagId, type) {
     });
 }
 </script>
-<?php include 'footer.php'; ?>
+<?php include '/footer.php'; ?>

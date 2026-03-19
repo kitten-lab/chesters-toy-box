@@ -32,31 +32,160 @@ $total = $total_row['total'];
 $total_pages = ceil($total / $limit);
 ?>
 
+<!-- OPENING DOCUMENT -->
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Timbers</title>
-    <link rel="stylesheet" href="style.css">
+    <html>
+    <head>
+        <title>Timbers</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
 
-</head>
-<body>
-<?php include 'header.php'; ?>
-<div class="pagination">
+<!-- INSERT HEADER -->
+    <?php include __DIR__ . '/../header.php'; ?>
 
-    <button onclick="setFilter('all')">All</button>
-    <button onclick="setFilter('tagged')">Tagged</button>
-    <button onclick="setFilter('untagged')">Untagged</button>
-    <?php if ($page > 1): ?>
-        <a href="?page=<?php echo $page - 1; ?>">← Previous</a>
-    <?php endif; ?>
+<!-- PAGINATION -->
+    <?php include __DIR__ . '/../dataforestry/paginator.php'; ?>
 
-    <span>Page <?php echo $page; ?> of <?php echo $total_pages; ?></span>
+<!-- FILTER RESULTS -->
 
-    <?php if ($page < $total_pages): ?>
-        <a href="?page=<?php echo $page + 1; ?>">Next →</a>
-    <?php endif; ?>
+<!--BEGIN GRID -->
+<div class="timber-grid">
+<?php while($row = $result->fetch_assoc()): ?>
+    <?php 
+    // skip children, only render roots
+    if ($row['parent_id']) continue; 
+    
+    // you can call a spade a quarter if you want
+    $prefix = ($row['speaker'] === 'user') ? 'S' : 'W'; 
+    
+    $speakerName = ($row['speaker'] === 'user') ? 'Sam.exe' : 'Wire Wolf'; 
+    ?>
 
+<!--BEGIN ROWS of TIMBER -->
+    <div 
+    id="timber-<?php echo $row['id']; ?>" 
+    class="timber"
+    data-tagged="<?php echo !empty($row['tag_data']) ? 'true' : 'false'; ?>"
+    >
+
+<!--begin content output here-->
+<!--#######################-->
+
+    <div class="timber-header">
+    <!--inside the header issssss~~ -->
+
+    <!-- identification! -->
+    <div class="timber-idTag"> 
+        <?php echo $speakerName ?> | 
+        <?php echo $row['log_code']; ?>-
+        <?php echo $prefix . $row['block_id']; ?>-
+        <?php echo $row['order_index'] + 1; ?> 
+    </div>
+
+    <div class="timber-headerFloat">
+    <!-- a settings gear! -->
+    <button onclick="showManageInput(<?php echo $row['id']; ?>)" class="timber-gear">⚙️
+    </button>
+
+    <!-- a trash can! -->
+    <div class="btn timber-trash"><a 
+        href="delete_timber.php?id=<?php echo $row['id']; ?>" 
+        onclick="return confirm('Delete this timber?<br> <?php echo $row['content'] ?>');">🗑️</a> 
+    </div>
+    </div>
+
+    <!-- and that's it! -->
+    </div>
+
+    <!-- now tenderly place the content in the leaf drawer -->
+    <div class="timber-leaf">
+        <?php echo htmlspecialchars($row['content']); ?>
+    </div>
+
+<!--#######################-->
+<!--end content output-->
+    </div>
+<!-- END ROWS OF TIMBERS -->
+
+
+<!-- BEGIN CHAMBER OF EDITS -->
+<!-- make a fancy box with overlay and nice positioning -->
+    <div id="manage-input-<?php echo $row['id']; ?>" class="tool-box">
+
+    <div class="tools-panel">
+    <div class="tools-body">
+    <button onclick="showManageInput(<?php echo $row['id']; ?>)">
+    Close Manager
+    </button>
+
+    <a href="delete_timber.php?id=<?php echo $row['id']; ?>" 
+    onclick="return confirm('Delete this timber? <?php echo $row['content'] ?>');"
+    class="btn delete_timber_x">Move to Trash</a>
+
+    <div style="background: white; padding: 12px; border: 1px solid white;">
+
+    <h1>Record Keeper</h1>
+    <span class="branch">
+        Log Yard Code: <?php echo $row['log_code']; ?>-
+        <?php echo $prefix . $row['block_id']; ?>-
+        <?php echo $row['order_index'] + 1; ?>
+    </span>
+
+    <br>
+    
+    <span class="branch all-caps">
+        Speaker: <?php echo $row['speaker'] ?> 
+    </span>
+
+    <h1>Timber Content</h1>
+    <div class="timber-leaf">
+        <?php echo htmlspecialchars($row['content']); ?>
+    </div>
+
+    <h1>Tags</h1>
+    <input 
+    type="text" 
+    placeholder="add tags..." 
+    onkeydown="handleTagKeydown(event, <?php echo $row['id']; ?>)"
+    oninput="handleTagAutocomplete(event, <?php echo $row['id']; ?>)"
+    style="margin-top:5px;"
+    > 
+    <div class="tag-suggestions" id="suggestions-<?php echo $row['id']; ?>"></div><br>
+    <span id="tags-<?php echo $row['id']; ?>"></span>
+    <?php
+    if (!empty($row['tag_data'])) {
+    $tag_items = explode("||", $row['tag_data']);
+
+    foreach ($tag_items as $item) {
+        if (!$item || strpos($item, '::') === false) continue;
+
+        list($tag, $type) = explode("::", $item, 2);
+
+        $tag = htmlspecialchars($tag);
+        $type = htmlspecialchars($type ?: 'none');
+
+        echo "
+        <span class='tag tag-$type' data-tag='$tag' data-id='{$row['id']}'>
+        <a href='tag.php?tag=" . urlencode($tag) . "'>$tag</a>
+        <span class='remove'>×</span>
+        </span>";
+    }
+
+}
+    ?>
+    </div>
+    </div>
+    </div>
+<!--END CHAMBER OF EDITS -->
 </div>
+
+
+<?php endwhile; ?>
+</div>
+<!-- END GRID -->
+
+
 
 <div class="timber-grid">
 <?php while($row = $result->fetch_assoc()): ?>
@@ -68,37 +197,80 @@ $total_pages = ceil($total / $limit);
     data-tagged="<?php echo !empty($row['tag_data']) ? 'true' : 'false'; ?>">
 
     <div class="timber-box">
-    <div class="small">    
-    <?php echo $prefix ?> | <?php echo $row['log_code']; ?>-<?php echo $prefix . $row['block_id']; ?>-<?php echo $row['order_index'] + 1; ?>
 
-    <span class="small">
-    <button onclick="showLeafInput(<?php echo $row['id']; ?>)">
-    + Add Leaf
-    </button> 
-    <a href="delete_timber.php?id=<?php echo $row['id']; ?>" 
-    onclick="return confirm('Delete this timber?');"
-    style="color:red; text-decoration:none;">
-    🗑️ Delete
-    </a><br>    
-    <div class="tag-suggestions" id="suggestions-<?php echo $row['id']; ?>"></div>
-</span>    
-
-
-
-    
-    </div>
     <div class="leaf">
+    
+    <span class="small"> 
+    <?php echo $prefix ?> | <?php echo $row['log_code']; ?>-<?php echo $prefix . $row['block_id']; ?>-<?php echo $row['order_index'] + 1; ?>
+    </span> 
+    
+    <div style="background: white; padding: 10px; border: 1px dashed lightgray;">
     <?php echo htmlspecialchars($row['content']); ?>
     </div>
-<div id="leaf-input-<?php echo $row['id']; ?>" style="display:none; margin-top:5px;">
-    <textarea id="leaf-text-<?php echo $row['id']; ?>" rows="3" style="width:95%;"></textarea>
-    <br>
-    <button onclick="submitLeaf(<?php echo $row['id']; ?>)">Add</button>
-</div>
+    
+    <?php
+    if (!empty($row['tag_data'])) {
+    echo "<span class='label-block'>TAGGED<br>";
+    $tag_items = explode("||", $row['tag_data']);
+
+    foreach ($tag_items as $item) {
+        if (!$item || strpos($item, '::') === false) continue;
+
+        list($tag, $type) = explode("::", $item, 2);
+
+        $tag = htmlspecialchars($tag);
+        $type = htmlspecialchars($type ?: 'none');
+
+        echo "<span class='tag tag-$type' data-tag='$tag' data-id='{$row['id']}'>
+        <a href='tag.php?tag=" . urlencode($tag) . "'>$tag</a>
+        <span class='remove'>×</span>
+        </span>";
+    }
+    echo "</span>";
+
+}
+    ?>
+    </div>
+    <div id="leaf-input-<?php echo $row['id']; ?>" 
+        style="display:none; margin-top:5px;">
+        <textarea id="leaf-text-<?php echo $row['id']; ?>" 
+        rows="3" style="width:95%;"></textarea>
+        <br>
+        <button onclick="submitLeaf(<?php echo $row['id']; ?>)">Add</button>
+    </div>
     <!-- TAGS + INPUT etc -->
 
-    <!-- LEAVES WILL GO HERE -->
-    <div id="leaf-container-<?php echo $row['id']; ?>">
+ 
+<!-- remaining tags print -->
+
+
+<span id="tags-<?php echo $row['id']; ?>"></span>
+
+    <span class="small action">
+        <button onclick="showLeafInput(<?php echo $row['id']; ?>)">
+        + Add Leaf
+        </button> 
+        
+        
+    
+        <a href="delete_timber.php?id=<?php echo $row['id']; ?>" 
+        onclick="return confirm('Delete this timber?');"
+        class="btn" style="color:red; text-decoration:none;">
+        🗑️ Delete
+        </a>&nbsp;
+<input 
+    type="text" 
+    placeholder="add tags..." 
+    onkeydown="handleTagKeydown(event, <?php echo $row['id']; ?>)"
+    oninput="handleTagAutocomplete(event, <?php echo $row['id']; ?>)"
+    style="margin-top:5px; width:200px;"
+> 
+ <div class="tag-suggestions" id="suggestions-<?php echo $row['id']; ?>"></div>         
+        </span>
+    </span>
+
+   <!-- LEAVES WILL GO HERE -->
+    <div id="leaf-container-<?php echo $row['id']; ?>" class="leaf-container">
 
 <?php
 $leaf_result = $conn->query("
@@ -125,54 +297,25 @@ $leaf_result = $conn->query("
 <?php while($leaf = $leaf_result->fetch_assoc()): ?>
 
 <div 
-    class="timber timber-leaf leaf"
+    class="timber-leaf leaf"
     data-tagged="<?php echo !empty($leaf['tag_data']) ? 'true' : 'false'; ?>"
-    style="margin-left:20px; padding:8px; border-left:3px solid #bbb; margin-top:6px; background:#f9f9f9; "
     
 >
     
     <div class="small">
         YOU | <?php echo $leaf['log_code']; ?>-L<?php echo $leaf['id']; ?> 
-
-    <!-- LEAF BUTTON (THIS IS WHAT ENABLES RECURSION) -->
-    <button onclick="showLeafInput(<?php echo $leaf['id']; ?>)">+ Leaf Edge</button>
-
-    <a href="delete_timber.php?id=<?php echo $leaf['id']; ?>" 
-    onclick="return confirm('Delete this timber?');"
-    style="color:red; text-decoration:none;">
-    🗑️ Delete
-    </a>
-
    
     </div>
 
-    <div class="leaf">
+    <div style="background: white; padding: 10px; border: 1px dashed lightgray;">
         <?php echo htmlspecialchars($leaf['content']); ?>
     </div>
-
-    <!-- TAG INPUT -->
-    <div class="small">
-    <!-- TAG DISPLAY -->
-    <span id="tags-<?php echo $leaf['id']; ?>"><span id="leaf-input-<?php echo $leaf['id']; ?>" style="display:none;">
-        <textarea id="leaf-text-<?php echo $leaf['id']; ?>"></textarea>
-        <button onclick="submitLeaf(<?php echo $leaf['id']; ?>)">Add</button>
-    </span><br>
-    <div class="tag-suggestions" id="suggestions-<?php echo $leaf['id']; ?>"></div>
-</div>
- 
-    <input 
-        type="text" 
-        placeholder="add tags..." 
-        onkeydown="handleTagKeydown(event, <?php echo $leaf['id']; ?>)"
-oninput="handleTagAutocomplete(event, <?php echo $leaf['id']; ?>)"
-        style="margin-top:5px; width:200px;"
-    >
-        <?php
+<?php
 
     if (!empty($leaf['tag_data'])) {
 
     $tag_items = explode("||", $leaf['tag_data']);
-    echo "<span class='label-block'>TAGS</span> ";
+    echo "<span class='label-block'>TAGGED <br> ";
     foreach ($tag_items as $item) {
         if (!$item || strpos($item, '::') === false) continue;
 
@@ -186,55 +329,50 @@ oninput="handleTagAutocomplete(event, <?php echo $leaf['id']; ?>)"
     <span class='remove'>×</span>
 </span>";
     }
+    echo "</span>";
 
 }
  ?>
-    </span>
-</div>
+    <!-- TAG INPUT -->
+    <div class="small action">
+    <!-- TAG DISPLAY -->
 
+
+    <span id="tags-<?php echo $leaf['id']; ?>"><span id="leaf-input-<?php echo $leaf['id']; ?>" style="display:none;">
+        <textarea id="leaf-text-<?php echo $leaf['id']; ?>"></textarea>
+        <button onclick="submitLeaf(<?php echo $leaf['id']; ?>)">Add</button>
+    </span>
+
+    
+        
+    </span></div>
+</div>
+<!-- LEAF BUTTON (THIS IS WHAT ENABLES RECURSION) -->
+    <button onclick="showLeafInput(<?php echo $leaf['id']; ?>)">+ Leaf Edge</button> 
+
+    <a href="delete_timber.php?id=<?php echo $leaf['id']; ?>" 
+    onclick="return confirm('Delete this timber?');"
+    class="btn" style="color:red; text-decoration:none;">
+    🗑️ Delete
+    </a>&nbsp;
+    <input 
+        type="text" 
+        placeholder="add tags..." 
+        onkeydown="handleTagKeydown(event, <?php echo $leaf['id']; ?>)"
+        oninput="handleTagAutocomplete(event, <?php echo $leaf['id']; ?>)">
+
+    <div class="tag-suggestions" id="suggestions-<?php echo $leaf['id']; ?>"></div>
+
+    
 <?php endwhile; ?>
-
-</div>
-<!-- remaining tags print -->
-
-
-<span id="tags-<?php echo $row['id']; ?>">
-<input 
-    type="text" 
-    placeholder="add tags..." 
-    onkeydown="handleTagKeydown(event, <?php echo $row['id']; ?>)"
-    oninput="handleTagAutocomplete(event, <?php echo $row['id']; ?>)"
-    style="margin-top:5px; width:200px;"
->
-    <?php
-    if (!empty($row['tag_data'])) {
-    echo "<span class='label-block'>TAGS</span> ";
-    $tag_items = explode("||", $row['tag_data']);
-
-    foreach ($tag_items as $item) {
-        if (!$item || strpos($item, '::') === false) continue;
-
-        list($tag, $type) = explode("::", $item, 2);
-
-        $tag = htmlspecialchars($tag);
-        $type = htmlspecialchars($type ?: 'none');
-
-        echo "<span class='tag tag-$type' data-tag='$tag' data-id='{$row['id']}'>
-    <a href='tag.php?tag=" . urlencode($tag) . "'>$tag</a>
-    <span class='remove'>×</span>
-</span>";
-    }
-
-}
-    ?>
-    </span>
 </div>
     </div>
 
+</div>
 <?php endwhile; ?>
 </div>
 <a href="index.php">Back</a>
-</body>
+
 
 <script>
 let activeIndex = -1;
@@ -391,10 +529,54 @@ document.addEventListener("click", function(e) {
 });
 </script>
 
+
 <script>
+
+
+
+function showManageInput(timberId) {
+   
+    let el = document.getElementById("manage-input-" + timberId);
+     if (el.style.display === "block") {
+        el.style.display = "none";
+
+    } else {
+        el.style.display = "block";
+    }
+}
+
+function closeManageInput(timberId) {
+    let el = document.getElementById("manage-input-" + timberId);
+    el.style.display = el.style.display === "none" ? "block" : "none";
+}
+
+
 function showLeafInput(timberId) {
     let el = document.getElementById("leaf-input-" + timberId);
     el.style.display = el.style.display === "none" ? "block" : "none";
+}
+
+function setFilter(type) {
+  const timbers = document.querySelectorAll('.timber');
+  const buttons = document.querySelectorAll('.filters button');
+
+  buttons.forEach(b => b.classList.remove('active'));
+
+  document
+    .querySelector(`.filters button[onclick="setFilter('${type}')"]`)
+    ?.classList.add('active');
+
+  timbers.forEach(t => {
+    const tagged = t.dataset.tagged === "true";
+
+    if (type === 'all') {
+      t.style.display = '';
+    } else if (type === 'tagged') {
+      t.style.display = tagged ? '' : 'none';
+    } else {
+      t.style.display = !tagged ? '' : 'none';
+    }
+  });
 }
 
 function submitLeaf(parentId) {
@@ -457,6 +639,6 @@ function addLeafToUI(parentId, data) {
     <?php endif; ?>
 
 </div>
-<?php include 'footer.php'; ?>
-
+<?php include __DIR__ . '/../footer.php'; ?>
+</body>
 </html>

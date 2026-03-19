@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '/dataforestry/db.php';
 
 $term = $_GET['term'] ?? '';
 

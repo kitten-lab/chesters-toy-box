@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$dbname = "your-dn";
-$username = "your-username";
-$password = "your-pass****";
+$dbname = "hkliuste_dataforestry";
+$username = "hkliuste_JNN202";
+$password = "j-8v33eBvPq)f6*";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
