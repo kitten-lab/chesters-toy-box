@@ -54,7 +54,7 @@ h2 {
 }
 
 /* ===== BUTTONS ===== */
-button, .btn {
+button {
     display: inline-block;
     background: #f0f4f8;
     text-decoration: none;
@@ -69,11 +69,21 @@ button, .btn {
 }
 
 .btn {
+    
+    display: inline-block;
+    background: #f0f4f8;
+    text-decoration: none;
+    color: #aaa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.15s ease;
+    margin: 2px;
     padding: 2px !important;
     text-align: center;
     text-decoration:none;
     font-size: 11px;
-    width: 22px;
 }
 
 button:hover {
@@ -149,7 +159,7 @@ label {
     column-gap: 12px;
     background-color: rgba(221,238,244,0.2);
   background-image: radial-gradient(circle at 1px 1px, #eee 1px, transparent 0); 
-  background-size: 8px 8px; 
+  background-size: 16px 16px; 
   padding: 8px;
 }
 
@@ -213,6 +223,7 @@ label {
 
 timber-gear {
         text-decoration:none;
+    width: 22px;
 }
 
 .leaf-container {
@@ -307,12 +318,9 @@ tool-box.active {
     z-index:3;
     height: 100%;
     padding: 10px;
-    border: 3px double #2596be;
+    border-left: 3px solid #2596be;
     transition: all 0.15s ease;
     width: 35%;
-    border-top: 10px solid #2596be;
-        border-bottom: 10px solid #2596be;
-
 }
 
 
@@ -320,6 +328,19 @@ tool-box.active {
     background: white;
 }
 
+
+.tool-settingsHeader {
+    padding: 10px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 13px;
+    background: rgba(68,138,163,0.08);
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    color: white;
+    border-radius: 2px;
+}
 
 
 
@@ -549,6 +570,9 @@ tool-box.active {
     color: white;
     border-radius: 2px;
 }
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 <?php
-include '/dataforestry/db.php';
+include 'db.php';
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
@@ -9,6 +9,6 @@ if (isset($_GET['id'])) {
     $stmt->execute();
 }
 
-header("Location: /dataforestry/view_timbers.php?refresh=" . time());
+header("Location: view_timbers.php?refresh=" . time());
 exit;
 ?>

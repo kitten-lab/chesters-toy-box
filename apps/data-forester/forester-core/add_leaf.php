@@ -1,5 +1,5 @@
 <?php
-include '/dataforestry/db.php';
+include 'db.php';
 
 $parent_id = intval($_POST['parent_id']);
 $content = $_POST['content'];
