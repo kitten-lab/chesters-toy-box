@@ -14,9 +14,12 @@
     --base-dark-2: #283618;
     --base-dark-3: #3a5a40;
 
-    --oix-mast-bgimage: linear-gradient(var(--oix-mast-gradientA), var(--oix-mast-gradientB));
+    --oix-mast-bgColor: transparent;
+    --oix-mast-bgImage: linear-gradient(var(--oix-mast-gradientA), var(--oix-mast-gradientB));
+    --oix-mast-edgeStyle: 2px dotted var(--accent-mid-3);
     --oix-mast-gradientA: rgba(255, 203, 105, 1.0);
     --oix-mast-gradientB: rgba(155, 155, 122, 1.0);
+    --oix-mast-houseMarkColor: rgba(0,0,0,0.7);
 
     --oix-navi-sectionHead-color: rgba(, 1.0);
     --oix-navi-sectionSubHead-color: rgba(, 1.0);
@@ -26,6 +29,9 @@
     --pure-white: #ffffff;
     --pure-black: #000000;
     --grid-background: rgba(241, 220, 167, 1.0);
+
+/* ~~~~~~ EFFECT STYLINGS ~~~~~~ */
+    --effect-wild-glow: 0px 0px 20px var(--base-mid);
 }
 
 @font-face {
@@ -43,56 +49,59 @@
     font-style: normal;
 }
 
-
-.oix-mast_storeFrontTitle {
-    color: var(--base-mid-2);
-    font-weight: 500;
-    font-size: 16px;
-    text-shadow: 1px 1px 0px var(--light-accent);
-
-    
+html {
+  font-size: 100%; /* Ensures 1rem defaults to the user's browser setting, typically 16px */
 }
-
 /* ===== RESET-ish ===== */
 body {
     font-family: var(--font-family-standard);
-    line-height: 1.8; 
+    line-height: 1.8rem; 
     color: var(--gray);
     margin: 0;
-    font-sze: 8px;
     background: var(--grid-background);
-    font-size: 12px;
+    font-size: 1rem;
 }
 
 a {
     text-decoration: none;
 }
 
+#sourceTA {
+    display: block;
+}
+
+#targetDiv {
+  border: 1px dashed #333333;
+  width: 600px;
+  height: 400px;
+}
+
 /* ===================== OIX MAST =================== */
 .oix-mast {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    background-color: transparent;
-    background-image: var(--oix-mast-bgimage);
-    border-bottom: 2px dotted var(--accent-mid-3);
-    padding: 2px;
+    display: flex; /* DON'T CHANGE */
+    position: relative; /* DON'T CHANGE */
+    justify-content: space-between; /* DON'T CHANGE */
+    align-items: center; /* DON'T CHANGE */
+    background-color: var(--oix-mast-bgColor);
+    background-image: var(--oix-mast-bgImage);
+    border-bottom: var(--oix-mast-edgeStyle);
+    padding: 2px; /* DON'T CHANGE */
+    height: 2.6rem;
 }
 
 .oix-mast_houseMark {
-    color: var(--base-dark);
+    color: var(--oix-mast-houseMarkColor);
     font-family: var(--font-family-accent);
     font-size: 22px !important;
     text-shadow: 1px 1px 0px var(--base-mid);
-    margin-left: 6px;
-    margin-right: -12px;
     padding-top: 6px;
+    margin-right: -12px;
+    margin-left: 6px;
 }
 
 .oix-mast_proprietorMark {
     color: var(--accent-lightest);
-    font-family: 'Mona Sans Black', 'Inter';
+    font-family: var(--font-family-accent);
     font-size: 19px !important;
     text-shadow: 1px 1px 0px var(--base-mid);
     padding-top: 6px;
@@ -100,8 +109,41 @@ a {
     margin-left: 6px;
 }
 
-/* ===================== OIX PRIMARY NAVIGATION (DEFAULT: LEFT) =================== */
+.oix-mast_storeFrontTitle {
+    color: var(--base-mid-2);
+    font-weight: 500;
+    font-size: 1rem;
+    text-shadow: 1px 1px 0px var(--light-accent);    
+}
 
+.oix-mast_miniNavi {
+    position: absolute;
+    right: 12px;
+    top: 9px;
+}
+
+.oix-mast_miniNavi a {
+    color: var(--base-mid-2);
+    font-weight: 900;
+    font-size: 11px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px var(--light-accent);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 1px solid var(--accent-light);
+    border-radius: 4px;
+    box-shadow: 1px 1px 0px var(--base-mid);
+    margin-left: 3px;
+}
+
+.oix-mast_miniNavi a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--base-dark)
+}
+
+/* ===================== OIX PRIMARY NAVIGATION (DEFAULT: LEFT) =================== */
 
 .oix-navi {
   width: 220px; /* Fixed width */
@@ -111,7 +153,7 @@ a {
   background-image: linear-gradient(var(--base-dark-2), var(--base-dark-3));
   padding: 6px;    
   border-right: 2px dotted var(--accent-mid);    
-  box-shadow: 0px 0px 20px var(--base-mid);
+  box-shadow: var(--effect-wild-glow);
 }
 
 

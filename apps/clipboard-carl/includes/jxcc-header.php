@@ -7,7 +7,7 @@
         <span class="oix-mast_proprietorMark">CC</span>
         clipboard Carl
     </div>
-    <nav class="nn_naviRight">
+    <nav class="oix-mast_miniNavi">
         <a href="/index.php">Login</a>
         <a href="/index.php">O</a>
         <a href="/index.php">X</a>

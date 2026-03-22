@@ -148,13 +148,13 @@ h2 {
     box-shadow: 1px 1px 0px var(--base-mid);
 }
 
-.black { font-family: 'Mona Sans Black'; }
-
 .nn_naviRight a:hover {
     background-color: rgba(255, 255, 255, 0.15);
     color: var(--base-dark)
 }
 
+
+.black { font-family: 'Mona Sans Black'; }
 
 /* ===== FOOTER ===== */
 .nn_footer {
