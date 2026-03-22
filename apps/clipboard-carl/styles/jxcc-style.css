@@ -1,0 +1,377 @@
+:root {
+    --accent-lightest: #ffffff;
+    --base-light: rgba(217,237,146,0.5);
+    --accent-light: #b5e48cff;
+    --accent-light-2: #99d98cff;
+    --accent-mid: #76c893ff;
+    --accent-mid-2: #52b69aff;
+    --accent-mid-3: #168aadff;
+    --base-mid: #1a759fff;
+    --base-mid-2: #1e6091ff;
+    --base-dark: #081c15ff;
+    --gray: #1a1a1a;
+    --light-accent: #f2f50fff;
+    --base-dark-2: #283618;
+    --base-dark-3: #3a5a40;
+
+    --oix-mast-bgimage: linear-gradient(var(--oix-mast-gradientA), var(--oix-mast-gradientB));
+    --oix-mast-gradientA: rgba(255, 203, 105, 1.0);
+    --oix-mast-gradientB: rgba(155, 155, 122, 1.0);
+
+    --oix-navi-sectionHead-color: rgba(, 1.0);
+    --oix-navi-sectionSubHead-color: rgba(, 1.0);
+
+    --font-family-accent: 'Mona Sans Black', 'Inter';
+    --font-family-standard: 'Mona Sans', 'Inter';
+    --pure-white: #ffffff;
+    --pure-black: #000000;
+    --grid-background: rgba(241, 220, 167, 1.0);
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url('/styles/fonts/MonaSansDisplay-Regular.woff2') format('woff2'),
+         url('/styles/fonts/MonaSansDisplay-Regular') format('woff');
+    font-weight: 400; /* Adjust weights as needed */
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mona Sans Black';
+    src: url('/styles/fonts/MonaSansDisplayExpanded-Black.woff2') format('woff2'),
+         url('/styles/fonts/MonaSansDisplayExpanded-Black') format('woff');
+    font-weight: 400; /* Adjust weights as needed */
+    font-style: normal;
+}
+
+
+.oix-mast_storeFrontTitle {
+    color: var(--base-mid-2);
+    font-weight: 500;
+    font-size: 16px;
+    text-shadow: 1px 1px 0px var(--light-accent);
+
+    
+}
+
+/* ===== RESET-ish ===== */
+body {
+    font-family: var(--font-family-standard);
+    line-height: 1.8; 
+    color: var(--gray);
+    margin: 0;
+    font-sze: 8px;
+    background: var(--grid-background);
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===================== OIX MAST =================== */
+.oix-mast {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    background-image: var(--oix-mast-bgimage);
+    border-bottom: 2px dotted var(--accent-mid-3);
+    padding: 2px;
+}
+
+.oix-mast_houseMark {
+    color: var(--base-dark);
+    font-family: var(--font-family-accent);
+    font-size: 22px !important;
+    text-shadow: 1px 1px 0px var(--base-mid);
+    margin-left: 6px;
+    margin-right: -12px;
+    padding-top: 6px;
+}
+
+.oix-mast_proprietorMark {
+    color: var(--accent-lightest);
+    font-family: 'Mona Sans Black', 'Inter';
+    font-size: 19px !important;
+    text-shadow: 1px 1px 0px var(--base-mid);
+    padding-top: 6px;
+    margin-right: 0px;
+    margin-left: 6px;
+}
+
+/* ===================== OIX PRIMARY NAVIGATION (DEFAULT: LEFT) =================== */
+
+
+.oix-navi {
+  width: 220px; /* Fixed width */
+  position: sticky; /* Makes it stick when scrolling */
+  top: 0;
+  padding: 5px;
+  background-image: linear-gradient(var(--base-dark-2), var(--base-dark-3));
+  padding: 6px;    
+  border-right: 2px dotted var(--accent-mid);    
+  box-shadow: 0px 0px 20px var(--base-mid);
+}
+
+
+.oix-navi-sectionContainer {
+    color: var(--base-mid-2);
+    font-weight: 500;
+    font-size: 16px;
+    text-shadow: 1px 1px 0px var(--light-accent);
+}
+
+.oix-navi-sectionHead {
+    padding-top: 6px;
+    font-family: var(--font-family-accent);
+    font-size: 22px !important;
+    color: var(--oix-navi-sectionHead-color);
+    margin-right: -12px;
+    text-shadow: 1px 1px 0px var(--base-mid);
+    margin-left: 6px;
+}
+
+.oix-navi-sectionSubHead {
+    padding-top: 6px;
+    font-family: var(--font-family-accent);
+    font-size: 18px !important;
+    color: var(--oix-navi-sectionSubHead-color);
+    margin-right: -12px;
+    text-shadow: 1px 1px 0px var(--base-mid);
+    margin-left: 6px;
+}
+
+.oix-navi-sectionPlacement {
+    position: absolute;
+    margin-left: 6px;
+}
+
+
+.oix-navi ul {
+  list-style-type: none; /* Removes bullet points */
+  padding: 0; 
+  margin: 0;
+  margin-top: 12px;
+}
+
+.oix-navi li {
+  margin-bottom: 10px;
+
+}
+
+.oix-navi a {
+  display: block;
+    text-decoration: none;
+    color: var(--accent-light);
+    font-weight: 900;
+    font-size: 12px;
+    
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: dotted 1px var(--base-dark);
+    box-shadow: 2px 2px 2px #00000033;
+}
+
+
+
+.oix-navi-sectionContainer a {
+    margin-left: 3px;
+    text-decoration: none;
+    color: var(--base-mid-2);
+    text-shadow: 1px 1px 0px var(--light-accent);
+    font-weight: 900;
+    font-size: 11px;
+    border-radius: 4px;
+    border: 1px solid var(--accent-light);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    box-shadow: 1px 1px 0px var(--base-mid);
+}
+
+
+.oix-navi-sectionContainer a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--base-dark)
+}
+
+/* ================================================================== */
+
+.icon svg {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-top: 2px;
+    stroke-width: 1.25 !important;
+    opacity: 0.5;
+}
+
+
+
+
+
+/* ===== FOOTER ===== */
+.nn_footer {
+    border-top: 1px dotted var(--accent-mid-2);
+    font-size: 12px;
+    background-image: linear-gradient(var(--accent-light), var(--accent-mid));
+    padding: 6px;
+    padding-bottom: 2px;
+    padding-top: 0px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    box-shadow: -1px -1px 2px var(--accent-light-2);
+}
+
+.nn_footer a {
+    text-decoration: none;
+    color: var(--base-dark);
+    font-weight: 500;
+}
+
+.nn_footer a:hover {
+    text-decoration: underline;
+}
+
+
+.nn_footerTagline {
+    display: inline-block;
+    font-size: 11px;
+    opacity: 0.7;
+    position: absolute;
+    right: 8px;
+    margin-top: 10px;
+}
+
+
+
+.f_coreContainer {
+  display: flex; /* Aligns sidebar and content side-by-side */
+  min-height: 90vh; /* Ensures container takes full viewport height */
+  border-top: solid 2px var(--base-mid);
+}
+
+
+
+.f_coreContents {
+  flex: 1; /* Takes up remaining space */
+  padding: 20px;
+  background-image: radial-gradient(circle at center, var(--accent-mid) 1px, transparent 0); 
+   background-repeat: round; 
+  background-size: 12px 12px; 
+  width: 100vw;    
+
+}
+
+/* Style the list items and links */
+
+
+
+
+/* ===== BUTTONS ===== */
+button {
+    display: inline-block;
+    background: #f0f4f8;
+    text-decoration: none;
+    color: #aaa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 5px 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.15s ease;
+    margin: 2px;
+}
+
+.btn {
+    
+    display: inline-block;
+    background: #f0f4f8;
+    text-decoration: none;
+    color: #aaa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.15s ease;
+    margin: 2px;
+    padding: 2px !important;
+    text-align: center;
+    text-decoration:none;
+    font-size: 11px;
+}
+
+button:hover {
+    background: #f0f4f8;
+}
+
+
+/* ===== FORM BOX ===== */
+.form-box {
+    background: #f7f9fb;
+    border: 1px solid #e1e4e8;
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 700px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+
+/* ===== TEXTAREA ===== */
+textarea {
+    width: 95%;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+    resize: vertical;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76,175,80,0.15);
+}
+
+/* ===== INPUT ===== */
+input[type="text"],
+input[type="number"] {
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 13px;
+    outline: none;
+}
+input[placeholder="add tags..."] {
+    background: #fafafa;
+}
+
+input {
+    width: 60;
+}
+
+input:focus {
+    border-color: #4CAF50;
+}
+
+
+/* ===== LABELS ===== */
+label {
+    font-size: 12px;
+    color: #666;
+    display: block;
+    margin-bottom: 4px;
+}
+
+
+
+/* {
+    outline: 1px solid red;
+} 
+
