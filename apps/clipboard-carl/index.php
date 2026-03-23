@@ -15,8 +15,12 @@ $storeTitle = "the Clipboard";
 // "$deptStyle" = use in case of changes for Dept specific needs
 // ===============================================================|>
 
+$initiates = "";
+$page_insert = "";
+$scriptures = "";
+$content_insert = "";
 $page_title = $storeFrontTitle . 'Home';
-$page_path = __DIR__ . '/pages/jxcc-index.md';
-
+$page_slug = 'index.md';
+$deptStyle = false;
 include 'includes/iox-shell.php';
 ?>

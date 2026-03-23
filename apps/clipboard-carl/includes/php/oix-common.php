@@ -5,6 +5,7 @@
 $storeMark = $houseMark . $proprietorMark;
 
 // If there is a page insert, insert it.
+$page_path = __DIR__ . '/../../pages/' . $storeMark . '/' . $deptMark . '/' . $page_slug;
 $page_insert = file_exists($page_path) ? file_get_contents($page_path) : ''; 
 
 // CARL LOVES THE PARSEDOWN PARSER 

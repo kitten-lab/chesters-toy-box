@@ -10,10 +10,15 @@ if (!empty($initiates) && file_exists($initiates)) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?php echo $page_title ?></title>
-        <link rel="stylesheet" href="/styles/<?php echo $storeMark ?>.css">
+        <title><?= $page_title ?></title>
         <link rel="stylesheet" href="/styles/iox-core.css">
         <link rel="stylesheet" href="/styles/fonts.css">
+        <link rel="stylesheet" href="/styles/<?= $storeMark; ?>.css">
+        <?php if(!empty($deptStyle)) {
+            echo '<link rel="stylesheet" href="/styles/' . $storeMark . '-' . $deptMark . '.css">';
+        } 
+        ?>
+        
     </head>
 <body>
 
