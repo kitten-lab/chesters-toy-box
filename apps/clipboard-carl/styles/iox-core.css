@@ -14,9 +14,11 @@
     --base-dark-2: #283618;
     --base-dark-3: #3a5a40;
 
+    --oix-core-backgroundImage: radial-gradient(circle at center, var(--accent-mid) 1px, transparent 0);
     --oix-mast-bgColor: transparent;
     --oix-mast-bgImage: linear-gradient(var(--oix-mast-gradientA), var(--oix-mast-gradientB));
-    --oix-mast-edgeStyle: 2px dotted var(--accent-mid-3);
+    --oix-mast-edgeStyle: dotted;
+    --oix-mast-edgeColor: var(--accent-mid-3);
     --oix-mast-gradientA: rgba(255, 203, 105, 1.0);
     --oix-mast-gradientB: rgba(155, 155, 122, 1.0);
     --oix-mast-houseMarkColor: rgba(0,0,0,0.7);
@@ -34,25 +36,16 @@
     --effect-wild-glow: 0px 0px 20px var(--base-mid);
 }
 
-@font-face {
-    font-family: 'Mona Sans';
-    src: url('/styles/fonts/MonaSansDisplay-Regular.woff2') format('woff2'),
-         url('/styles/fonts/MonaSansDisplay-Regular') format('woff');
-    font-weight: 400; /* Adjust weights as needed */
-    font-style: normal;
+[data-store="JXCC"] {
+
 }
-@font-face {
-    font-family: 'Mona Sans Black';
-    src: url('/styles/fonts/MonaSansDisplayExpanded-Black.woff2') format('woff2'),
-         url('/styles/fonts/MonaSansDisplayExpanded-Black') format('woff');
-    font-weight: 400; /* Adjust weights as needed */
-    font-style: normal;
-}
+
+/* ===== PRIME OPERANTS ===== */
 
 html {
   font-size: 100%; /* Ensures 1rem defaults to the user's browser setting, typically 16px */
 }
-/* ===== RESET-ish ===== */
+
 body {
     font-family: var(--font-family-standard);
     line-height: 1.8rem; 
@@ -62,18 +55,20 @@ body {
     font-size: 1rem;
 }
 
-a {
-    text-decoration: none;
+.iox_coreContainer {
+  display: flex; /* Aligns sidebar and content side-by-side */
+  min-height: 90vh; /* Ensures container takes full viewport height */
+  border-top: solid 2px var(--base-mid);
 }
 
-#sourceTA {
-    display: block;
-}
+.iox_coreContents {
+  flex: 1; /* Takes up remaining space */
+  padding: 20px;
+  background-image: var(--oix-core-backgroundImage); 
+   background-repeat: round; 
+  background-size: 12px 12px; 
+  width: 100vw;    
 
-#targetDiv {
-  border: 1px dashed #333333;
-  width: 600px;
-  height: 400px;
 }
 
 /* ===================== OIX MAST =================== */
@@ -84,7 +79,9 @@ a {
     align-items: center; /* DON'T CHANGE */
     background-color: var(--oix-mast-bgColor);
     background-image: var(--oix-mast-bgImage);
-    border-bottom: var(--oix-mast-edgeStyle);
+    border-bottom-width: 2px; /* LOCKED SYSTEM */
+    border-bottom-style: var(--oix-mast-edgeStyle);
+    border-bottom-color: var(--oix-mast-edgeColor);
     padding: 2px; /* DON'T CHANGE */
     height: 2.6rem;
 }
@@ -292,24 +289,6 @@ a {
 }
 
 
-
-.f_coreContainer {
-  display: flex; /* Aligns sidebar and content side-by-side */
-  min-height: 90vh; /* Ensures container takes full viewport height */
-  border-top: solid 2px var(--base-mid);
-}
-
-
-
-.f_coreContents {
-  flex: 1; /* Takes up remaining space */
-  padding: 20px;
-  background-image: radial-gradient(circle at center, var(--accent-mid) 1px, transparent 0); 
-   background-repeat: round; 
-  background-size: 12px 12px; 
-  width: 100vw;    
-
-}
 
 /* Style the list items and links */
 
