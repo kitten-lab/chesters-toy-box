@@ -15,7 +15,7 @@
     <?php echo call_dept_style($deptStyle, $storeMark, $deptMark); ?>
         
 </head>
-<body>
+<body data-theme="<?= $storeMark; ?>">
 <!-- END OPENING PRAYERS -->
 <!-- ENTER THE HEAD OF THE OIX which opens the room -->
 <?php include $dirInclude . 'header.php'; ?>

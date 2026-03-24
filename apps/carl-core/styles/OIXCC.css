@@ -1,0 +1,79 @@
+[data-theme="OIXCC"] {
+
+    --color-darkA: rgb(22, 22, 20);
+    --color-darkB: rgb(12, 36, 6);
+    --color-midB: rgb(62, 99, 55, 0.25);
+    --color-midA: rgb(14, 119, 0);
+    --color-lightA: rgb(230, 255, 2);
+    --color-lightB: rgb(170, 196, 158);
+    --color-accentA: rgb(153, 145, 97);
+    --color-bright: rgb(0, 255, 0);
+    --color-unexpectedA: rgba(9, 255, 0, 0.267);    
+    --color-accentB: rgb(213, 228, 187);
+    --color-pure-white: rgb(255, 255, 255);
+    --color-pure-black: rgb(0, 0, 0);
+    --color-pure-gray: rgb(83, 83, 83);
+
+
+    --oix-core-backgroundImage: radial-gradient(circle at center, var(--color-midB) 1px, transparent 0);
+    --iox-core-ContainerBorderColor: var(--color-darkB);
+    --oix-core-gridBackground: var(--color-darkB);
+    --oix-core-TextColor: var(--color-bright);
+
+    --oix-mast-bgColor: transparent;
+    --oix-mast-bgImage: linear-gradient(var(--oix-mast-bgImageColorA), var(--oix-mast-bgImageColorB));
+    --oix-mast-bgImageColorA: var(--color-darkA);
+    --oix-mast-bgImageColorB: var(--color-darkA);
+
+    --oix-mast-edgeStyle: solid;
+    --oix-mast-edgeColor: var(--color-bright);
+
+    --oix-mast-houseMarkColor: var(--color-bright);
+    --oix-mast-houseMarkInsetColor: var(--color-midB);
+    --oix-mast-proprietorMarkColor: var(--color-pure-white);
+    --oix-mast-proprietorMarkInsetColor: var(--color-bright);
+    --oix-mast-storeFrontTitleColor: var(--color-bright);
+    --oix-mast-storeFrontInsetColor: var(--color-midB);
+
+    --oix-mast-navColor: var(--color-bright);
+    --oix-mast-navColorHover: var(--color-bright);
+    --iox-mast-navTextShadow: var(--color-bright);
+    --iox-mast-navTextShadowHover: var(--color-bright);
+
+    --iox-mast-navBtnBorderColor: var(--color-darkB);
+    --iox-mast-navBtnBorderColorHover: var(--color-bright);
+    --iox-mast-navBtnBorderStyle: solid;
+    --iox-mast-navBtnBorderStyleHover: solid;
+    --oix-mast-navBoxShadow: var(--color-darkB);
+
+    --oix-footer-borderStyle: solid;
+    --oix-footer-borderColor:var(--color-unexpectedA);
+    --oix-footer-bgColorA:var(--color-darkA);
+    --oix-footer-bgColorB:var(--color-darkA);
+    --oix-footer-shadowColor:var(--color-darkA);
+    --oix-footer-textColor:var(--color-midA);
+    --oix-footer-textLink:var(--color-bright);
+    --oix-footer-textLinkHover:var(--color-bright);
+
+    --oix-navi-sectionHead-color: var(--color-bright);
+    --oix-navi-sectionSubHead-color: var(--color-pure-white);
+    --iox-navi-headerInsetColor: var(--color-pure-black);
+
+    --oix-navi-backgroundStyle: linear-gradient(var(--color-darkB), var(--color-darkB));
+    --oix-navi-borderColor: var(--color-unexpectedA);
+    --oix-navi-borderStyle: solid;
+    
+    --oix-navi-btnBorderColor: var(--color-bright);
+    --oix-navi-btnBorderStyle: solid;
+    --oix-navi-btnShadowColor: var(--color-darkA);
+    --oix-navi-btnLabelColor: var(--color-bright);
+    --oix-navi-btnBackground: var(--color-midA);
+    --oix-navi-btnTextColorHover:var(--color-bright);
+    --oix-navi-btnShadowColorHover:var(--color-bright);
+    --oix-navi-btnBorderStyleHover:solid;
+    --oix-navi-btnBorderColorHover:var(--color-bright);
+
+    --font-family-accent: 'Mona Sans Black', 'Inter';
+    --font-family-standard: 'Mona Sans', 'Inter';
+    --oix-navi-boxGlow: 0rem 0rem 4rem var(--color-darkA);
+}

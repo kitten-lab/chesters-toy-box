@@ -2,48 +2,45 @@
 <aside class="oix-navi">
   <nav>
   <div class="oix-navi-sectionContainer">
-        <span class="oix-navi-sectionHead">CLIP</span>
-        <span class="oix-navi-sectionSubHead">BOARDS</span>
+        <span class="oix-navi-sectionHead">HEAD</span>
+        <span class="oix-navi-sectionSubHead">ONE</span>
     </div>
       <ul>
         <li><a href="#">
         <span class="icon"><?= $ico_bins; ?></span>
-        <span class="oix-navi-sectionPlacement">Open Last Clipboard</span>
+        <span class="oix-navi-sectionPlacement">Menu Item 1</span>
         </a></li>
 
         <li><a href="#">
         <span class="icon"><?= $ico_bins; ?></span>
-        <span class="oix-navi-sectionPlacement">See All Clipboards</span>
+        <span class="oix-navi-sectionPlacement">Menu Item 2</span>
         </a></li>
         
         <li><a href="#">
         <span class="icon"><?= $ico_bins; ?></span>
-        <span class="oix-navi-sectionPlacement">New Clipboard
+        <span class="oix-navi-sectionPlacement">Menu Item 3</span>
         </span>
         </a></li>
         </ul>
   <div class="oix-navi-sectionContainer">
-        <span class="oix-navi-sectionHead">CLIPPER</span>
-        <span class="oix-navi-sectionSubHead">KEEPER</span>
+        <span class="oix-navi-sectionHead">HEAD</span>
+        <span class="oix-navi-sectionSubHead">TWO</span>
     </div>
       <ul>
-        <li>
-        <a href="/import.php">
+        <li><a href="#">
         <span class="icon"><?= $ico_bins; ?></span>
-        <span class="oix-navi-sectionPlacement">Create a Clipping
+        <span class="oix-navi-sectionPlacement">Menu Item 1</span>
+        </a></li>
+
+        <li><a href="#">
+        <span class="icon"><?= $ico_bins; ?></span>
+        <span class="oix-navi-sectionPlacement">Menu Item 2</span>
+        </a></li>
+        
+        <li><a href="#">
+        <span class="icon"><?= $ico_bins; ?></span>
+        <span class="oix-navi-sectionPlacement">Menu Item 3</span>
         </span>
         </a></li>
-        <li>
-        <a href="#">
-        <span class="icon"><?= $ico_bins; ?></span>
-        <span class="oix-navi-sectionPlacement">Manage Clippings
-        </span>
-        </a></li>
-        <li>
-        <a href="#">
-        <span class="icon"><?= $ico_bins; ?></span>
-        <span class="oix-navi-sectionPlacement">Clipping Tag System
-      </span>
-        </a></li>
-      </ul> 
+        </ul>
       </nav></aside>
