@@ -29,6 +29,13 @@ if (!empty($path) && file_exists($path)) {
 }
 }
 
-
+function page_insert($content) {
+if (!empty($content)) {
+            if ($page_ext == 'md') {
+                echo render_md($text); 
+                } else {
+                    echo $page_insert;
+            } 
+        }
+}
 ?>
-

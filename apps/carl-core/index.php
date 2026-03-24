@@ -1,9 +1,9 @@
 <?php 
 // OIX NOTE: ADDRESS OF STORE (produces $storeMark for files)
-$houseMark = "JX"; // Jack's Crossing (Atavens)
+$houseMark = "OIX"; // Jack's Crossing (Atavens)
 $proprietorMark = 'CC'; // Carl Core (Executive Function)
-$deptMark = "CLIPBOARD";
-$storeTitle = "the Clipboard";
+$deptMark = "TEMPLATE";
+$storeTitle = "the Carl Core Template";
 
 // OIX NOTE: pageCaller definitions >|==============================
 // "$initiates" = init includes initiates to prepare the page (FOR ANY LOGIC)
@@ -21,8 +21,8 @@ $logic_insert = "";
 $page_title = $storeTitle . ' Home';
 $page_slug = 'index';
 $page_ext = 'md';
-$deptStyle = false;
+$deptStyle = true;
 
-include 'includes/iox-shell.php';
+include 'includes/shell.php';
 ?>
 

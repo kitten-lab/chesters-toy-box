@@ -1,52 +1,49 @@
-[data-theme="JXCC"] {
+[data-theme="COLORSET-VAPORWAVE"] {
 
-    --color-darkA: rgb(75, 74, 65);
-    --color-darkB: rgb(61, 69, 70);
-    --color-midB: rgb(201, 195, 171);
-    --color-midA: rgb(152, 177, 165);
-    --color-lightA: rgb(222, 224, 205);
-    --color-lightB: rgb(170, 196, 158);
-    --color-accentA: rgb(153, 145, 97);
-    --color-bright: rgb(255, 242, 121);
-    --color-unexpectedA: rgb(111, 250, 255);    
-    --color-accentB: rgb(213, 228, 187);
+    --color-darkA: rgb(5, 46, 228);
+    --color-darkB: rgb(0, 225, 255);
+    --color-midB: rgb(255, 0, 149);
+    --color-midA: rgb(100, 180, 143);
+    --color-lightA: rgb(225, 255, 0);
+    --color-lightB: rgb(255, 0, 221);
+    --color-accentA: rgb(194, 173, 41);
+    --color-bright: rgb(236, 65, 73);
+    --color-unexpectedA: rgb(17, 255, 204);    
+    --color-accentB: rgb(168, 245, 35);
     --color-pure-white: rgb(255, 255, 255);
     --color-pure-black: rgb(0, 0, 0);
     --color-pure-gray: rgb(83, 83, 83);
 
 
-    --oix-core-backgroundImage: radial-gradient(circle at center, var(--color-accentB) 1px, transparent 0);
+    --oix-core-backgroundImage: radial-gradient(circle at center, var(--color-midA) 1px, transparent 0);
     --iox-core-ContainerBorderColor: var(--color-darkB);
-    --oix-core-gridBackground: var(--color-pure-white);
-    --oix-core-TextColor: var(--color-darkA);
+    --oix-core-gridBackground: var(--color-darkA);
+    --oix-core-TextColor: var(--color-midA);
 
     --oix-mast-bgColor: transparent;
     --oix-mast-bgImage: linear-gradient(var(--oix-mast-bgImageColorA), var(--oix-mast-bgImageColorB));
-    --oix-mast-bgImageColorA: var(--color-darkA);
-    --oix-mast-bgImageColorB: var(--color-midA);
+    --oix-mast-bgImageColorA: var(--color-midA);
+    --oix-mast-bgImageColorB: var(--color-midB);
 
-    --oix-mast-edgeStyle: dashed;
+    --oix-mast-edgeStyle: solid;
     --oix-mast-edgeColor: var(--color-unexpectedA);
 
-    --oix-mast-houseMarkColor: var(--color-midA);
-    --oix-mast-houseMarkInsetColor: var(--color-lightA);
-    --oix-mast-proprietorMarkColor: var(--color-pure-black);
-    --oix-mast-proprietorMarkInsetColor: var(--color-lightA);
-    --oix-mast-storeFrontTitleColor: var(--color-darkB);
-    --oix-mast-storeFrontInsetColor: var(--color-lightA);
+    --oix-mast-houseMarkColor: var(--color-darkA);
+    --oix-mast-houseMarkInsetColor: var(--color-midA);
+    --oix-mast-proprietorMarkColor: var(--color-bright);
+    --oix-mast-proprietorMarkInsetColor: var(--color-darkA);
 
-    --oix-mast-navColor: var(--color-unexpectedA);
+    --oix-mast-navColor: var(--color-darkA);
     --oix-mast-navColorHover: var(--color-darkB);
     --iox-mast-navTextShadow: var(--color-midA);
     --iox-mast-navTextShadowHover: var(--color-darkB);
 
-    --iox-mast-navBtnBorderColor: var(--color-darkB);
-    --iox-mast-navBtnBorderColorHover: var(--color-lightA);
+    --iox-mast-navBtnBorderColor: var(--color-accentA);
+    --iox-mast-navBtnBorderColorHover: var(--color-unexpectedA);
     --iox-mast-navBtnBorderStyle: solid;
     --iox-mast-navBtnBorderStyleHover: solid;
-    --oix-mast-navBoxShadow: var(--color-darkB);
 
-    --oix-footer-borderStyle: dashed;
+    --oix-footer-borderStyle: solid;
     --oix-footer-borderColor:var(--color-darkA);
     --oix-footer-bgColorA:var(--color-lightA);
     --oix-footer-bgColorB:var(--color-lightB);
@@ -61,17 +58,17 @@
 
     --oix-navi-backgroundStyle: linear-gradient(var(--color-midA), var(--color-lightA), var(--color-midA));
     --oix-navi-borderColor: var(--color-midA);
-    --oix-navi-borderStyle: dashed;
+    --oix-navi-borderStyle: solid;
     
     --oix-navi-btnBorderColor: var(--color-darkB);
-    --oix-navi-btnBorderStyle: dashed;
+    --oix-navi-btnBorderStyle: solid;
     --oix-navi-btnShadowColor: var(--color-midA);
     --oix-navi-btnLabelColor: var(--color-darkB);
     --oix-navi-btnBackground: linear-gradient(var(--color-midA), var(--color-lightB));
     --oix-navi-btnTextColorHover:var(--color-lightA);
     --oix-navi-btnShadowColorHover:var(--color-accentA);
-    --oix-navi-btnBorderStyleHover:solid;
-    --oix-navi-btnBorderColorHover:var(--color-darkA);
+    --oix-navi-btnBorderStyleHover:dashed;
+    --oix-navi-btnBorderColorHover:var(--color-lightA);
 
     --font-family-accent: 'Mona Sans Black', 'Inter';
     --font-family-standard: 'Mona Sans', 'Inter';

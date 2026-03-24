@@ -10,11 +10,15 @@
     --color-bright: rgba(221, 229, 182, 1.0);
     --color-unexpectedA: rgba(152, 245, 225, 1.0);    
     --color-accentB: rgb(214, 231, 185);
-    --color-pure-white: #ffffff;
-    --color-pure-black: #000000;
+    --color-pure-white: rgb(255, 255, 255);
+    --color-pure-black: rgb(0, 0, 0);
+    --color-pure-gray: rgb(83, 83, 83);
 
     --oix-core-backgroundImage: radial-gradient(circle at center, var(--color-midA) 1px, transparent 0);
     --iox-core-ContainerBorderColor: var(--color-darkB);
+    --oix-core-gridBackground: var(--color-lightA);
+    --oix-core-TextColor: var(--color-pure-black);
+
 
     --oix-mast-bgColor: transparent;
     --oix-mast-bgImage: linear-gradient(var(--oix-mast-bgImageColorA), var(--oix-mast-bgImageColorB));
@@ -28,22 +32,33 @@
     --oix-mast-houseMarkInsetColor: var(--color-midA);
     --oix-mast-proprietorMarkColor: var(--color-bright);
     --oix-mast-proprietorMarkInsetColor: var(--color-darkA);
+    --oix-mast-storeFrontTitleColor: var(--color-accentA);
+    --oix-mast-storeFrontInsetColor: var(--color-darkB);
 
     --oix-mast-navColor: var(--color-darkA);
     --oix-mast-navColorHover: var(--color-darkB);
     --iox-mast-navTextShadow: var(--color-unexpectedA);
     --iox-mast-navTextShadowHover: var(--color-accentA);
+    --oix-mast-navBoxShadow: var(--color-accentA);
+
     --iox-mast-navBtnBorderColor: var(--color-accentA);
     --iox-mast-navBtnBorderColorHover: var(--color-unexpectedA);
     --iox-mast-navBtnBorderStyle: dotted;
     --iox-mast-navBtnBorderStyleHover: solid;
 
-
-    --iox-navi-headerInsetColor: var(--color-bright);
-
+    --oix-footer-borderStyle: dotted;
+    --oix-footer-borderColor:var(--color-darkA);
+    --oix-footer-bgColorA:var(--color-lightA);
+    --oix-footer-bgColorB:var(--color-lightB);
+    --oix-footer-shadowColor:var(--color-unexpectedA);
+    --oix-footer-textColor:var(--color-darkA);
+    --oix-footer-textLink:var(--color-darkB);
+    --oix-footer-textLinkHover:var(--color-pure-black);
 
     --oix-navi-sectionHead-color: var(--color-darkB);
-    --oix-navi-sectionSubHead-color: var(--color-dark);
+    --oix-navi-sectionSubHead-color: var(--color-darkB);
+    --iox-navi-headerInsetColor: var(--color-bright);
+
     --oix-navi-backgroundStyle: linear-gradient(var(--color-midA), var(--color-lightA), var(--color-midA));
     --oix-navi-borderColor: var(--color-midA);
     --oix-navi-borderStyle: dotted;
@@ -53,7 +68,6 @@
     --oix-navi-btnShadowColor: var(--color-midA);
     --oix-navi-btnLabelColor: var(--color-darkB);
     --oix-navi-btnBackground: none;
-
     --oix-navi-btnTextColorHover:var(--color-darkB);
     --oix-navi-btnShadowColorHover:var(--color-accentB);
     --oix-navi-btnBorderStyleHover:dotted;
@@ -61,10 +75,7 @@
 
     --font-family-accent: 'Mona Sans Black', 'Inter';
     --font-family-standard: 'Mona Sans', 'Inter';
-    --grid-background: var(--color-lightA);
-
-/* ~~~~~~ EFFECT STYLINGS ~~~~~~ */
-    --effect-wild-glow: 0rem 0rem 4rem var(--color-unexpectedA);
+    --oix-navi-boxGlow: 0rem 0rem 4rem var(--color-unexpectedA);
 }
 
 /* ===== PRIME OPERANTS ===== */
@@ -76,9 +87,9 @@ html {
 body {
     font-family: var(--font-family-standard);
     line-height: 1.8rem; 
-    color: var(--gray);
+    color: var(--oix-core-TextColor);
     margin: 0;
-    background: var(--grid-background);
+    background: var(--oix-core-gridBackground);
     font-size: 1rem;
 }
 
@@ -134,10 +145,10 @@ body {
 }
 
 .oix-mast_storeFrontTitle {
-    color: var(--color-darkB);
+    color: var(--oix-mast-storeFrontTitleColor);
     font-weight: 500;
     font-size: 1rem;
-    text-shadow: 0.05rem 0.05rem 0rem  var(--oix-mast-houseMarkInsetColor);   
+    text-shadow: 0.05rem 0.05rem 0rem  var(--oix-mast-storeFrontInsetColor);   
 }
 
 .oix-mast_miniNavi {
@@ -158,7 +169,7 @@ body {
     padding-bottom: 0.2rem;
     border: 0.05rem var(--iox-mast-navBtnBorderStyle) var(--iox-mast-navBtnBorderColor);
     border-radius: 0.25rem;
-    box-shadow: 0.05rem 0.05rem 0rem var(--oix-mast-navColor);
+    box-shadow: 0.05rem 0.05rem 0rem var(--oix-mast-navBoxShadow);
     margin-left: 3px;
 }
 
@@ -178,7 +189,7 @@ body {
   background-image: var(--oix-navi-backgroundStyle);
   padding: 0.5rem;    
   border-right: 0.15rem var(--oix-navi-borderStyle) var(--oix-navi-borderColor);    
-  box-shadow: var(--effect-wild-glow);
+  box-shadow: var(--oix-navi-boxGlow);
 }
 
 
@@ -216,7 +227,7 @@ body {
 
 .oix-navi li {
     margin-bottom: 0.3rem;
-    background: none;
+    background: var(--oix-navi-btnBackground);
     font-weight: 900;
     font-size: 0.7rem;
     padding-left: 0.6rem;
@@ -255,37 +266,38 @@ body {
 
 /* ===== FOOTER ===== */
 .oix-footer {
-    border-top: 1px dotted var(--accent-mid-2);
-    font-size: 12px;
-    background-image: linear-gradient(var(--accent-light), var(--accent-mid));
-    padding: 6px;
-    padding-bottom: 2px;
-    padding-top: 0px;
+    color: var(--oix-footer-textColor);
+    border-top: 0.05rem var(--oix-footer-borderStyle) var(--oix-footer-borderColor);
+    font-size: 0.8rem;
+    background-image: linear-gradient(var(--oix-footer-bgColorA), var(--oix-footer-bgColorB));
+    padding: 0.5rem;
+    padding-bottom: 0.15rem;
+    padding-top: 0rem;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    box-shadow: -1px -1px 2px var(--accent-light-2);
+    gap: 0.6rem;
+    box-shadow: -0.15rem -0.15rem 0.5rem var(--oix-footer-shadowColor);
 }
 
 .oix-footer a {
     text-decoration: none;
-    color: var(--base-dark);
+    color: var(--oix-footer-textLink);
     font-weight: 500;
 }
 
 .oix-footer a:hover {
     text-decoration: underline;
+    color: var(--oix-footer-textLinkHover);
 }
-
 
 .oix-footerTagline {
     display: inline-block;
-    font-size: 11px;
+    font-size: 0.6rem;
     opacity: 0.7;
     position: absolute;
-    right: 8px;
-    margin-top: 10px;
+    right: 0.5rem;
+    margin-top: 0.1rem;
 }
 
 
