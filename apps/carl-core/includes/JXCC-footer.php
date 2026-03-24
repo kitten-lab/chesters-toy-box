@@ -1,5 +1,4 @@
 <footer class="nn_footer">
-
         <span class="nn_HeaderLogo">oI</span>
         <span class="nn_sightHeaderSubLogo">x</span>  
         <span>JACKS CROSS. Please mind the Jacks.</span>

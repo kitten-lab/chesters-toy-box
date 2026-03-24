@@ -1,39 +1,52 @@
 :root {
-    --accent-lightest: #ffffff;
-    --base-light: rgba(217,237,146,0.5);
-    --accent-light: #b5e48cff;
-    --accent-light-2: #99d98cff;
-    --accent-mid: #76c893ff;
-    --accent-mid-2: #52b69aff;
-    --accent-mid-3: #168aadff;
-    --base-mid: #1a759fff;
-    --base-mid-2: #1e6091ff;
-    --base-dark: #081c15ff;
-    --gray: #1a1a1a;
-    --light-accent: #f2f50fff;
-    --base-dark-2: #283618;
-    --base-dark-3: #3a5a40;
 
-    --oix-core-backgroundImage: radial-gradient(circle at center, var(--accent-mid) 1px, transparent 0);
+    --color-darkA: rgba(81,91,47, 1.0);
+    --color-darkB: rgba(178,117,55, 1.0);
+    --color-midB: rgba(212, 163, 115, 1.0);
+    --color-midA: rgba(204, 213, 174, 1.0);
+    --color-lightA: rgba(233, 237, 201, 1.0);
+    --color-lightB: rgba(250, 237, 205, 1.0);
+    --color-accentA: rgba(254, 250, 224, 1.0);
+    --color-bright: rgba(221, 229, 182, 1.0);
+    --color-unexpectedA: rgba(152, 245, 225, 1.0);    
+    --color-accentB: rgba(208, 140, 96, 1.0);
+
+    --oix-core-backgroundImage: radial-gradient(circle at center, var(--color-midA) 1px, transparent 0);
+    --iox-core-ContainerBorderColor: var(--color-darkB);
+
     --oix-mast-bgColor: transparent;
-    --oix-mast-bgImage: linear-gradient(var(--oix-mast-gradientA), var(--oix-mast-gradientB));
-    --oix-mast-edgeStyle: dotted;
-    --oix-mast-edgeColor: var(--accent-mid-3);
-    --oix-mast-gradientA: rgba(255, 203, 105, 1.0);
-    --oix-mast-gradientB: rgba(155, 155, 122, 1.0);
-    --oix-mast-houseMarkColor: rgba(0,0,0,0.7);
+    --oix-mast-bgImage: linear-gradient(var(--oix-mast-bgImageColorA), var(--oix-mast-bgImageColorB));
+    --oix-mast-bgImageColorA: var(--color-midA);
+    --oix-mast-bgImageColorB: var(--color-midB);
 
-    --oix-navi-sectionHead-color: rgba(, 1.0);
-    --oix-navi-sectionSubHead-color: rgba(, 1.0);
+    --oix-mast-edgeStyle: solid;
+    --oix-mast-edgeColor: var(--color-unexpectedA);
 
+    --oix-mast-houseMarkColor: var(--color-darkA);
+    --oix-mast-houseMarkInsetColor: var(--color-midA);
+    --oix-mast-proprietorMarkColor: var(--color-bright);
+    --oix-mast-proprietorMarkInsetColor: var(--color-darkA);
+
+    --oix-mast-navColor: var(--color-darkA);
+    --iox-mast-navTextShadow: var(--color-unexpectedA);
+
+    --oix-navi-sectionHead-color: var(--color-darkA);
+    --oix-navi-sectionSubHead-color: var(--color-midB);
+    --oix-navi-backgroundStyle: linear-gradient(var(--color-midA), var(--color-lightA), var(--color-midA));
+    --oix-navi-borderColor: var(--color-midA);
+    --oix-navi-borderStyle: dotted;
+    
+    --iox-mast-navBtnBorderColor: var(--color-accentA);
+    --iox-mast-navBtnBorderStyle: dotted;
+    
     --font-family-accent: 'Mona Sans Black', 'Inter';
     --font-family-standard: 'Mona Sans', 'Inter';
     --pure-white: #ffffff;
     --pure-black: #000000;
-    --grid-background: rgba(241, 220, 167, 1.0);
+    --grid-background: var(--color-lightA);
 
 /* ~~~~~~ EFFECT STYLINGS ~~~~~~ */
-    --effect-wild-glow: 0px 0px 20px var(--base-mid);
+    --effect-wild-glow: 0rem 0rem 4rem var(--color-unexpectedA);
 }
 
 [data-store="JXCC"] {
@@ -58,15 +71,15 @@ body {
 .iox_coreContainer {
   display: flex; /* Aligns sidebar and content side-by-side */
   min-height: 90vh; /* Ensures container takes full viewport height */
-  border-top: solid 2px var(--base-mid);
+  border-top: solid 0.1rem var(--iox-core-ContainerBorderColor);
 }
 
 .iox_coreContents {
   flex: 1; /* Takes up remaining space */
-  padding: 20px;
+  padding: 1.4rem;
   background-image: var(--oix-core-backgroundImage); 
-   background-repeat: round; 
-  background-size: 12px 12px; 
+  background-repeat: round; 
+  background-size: 1rem 1rem; 
   width: 100vw;    
 
 }
@@ -79,57 +92,57 @@ body {
     align-items: center; /* DON'T CHANGE */
     background-color: var(--oix-mast-bgColor);
     background-image: var(--oix-mast-bgImage);
-    border-bottom-width: 2px; /* LOCKED SYSTEM */
+    border-bottom-width: 0.15rem; /* LOCKED SYSTEM */
     border-bottom-style: var(--oix-mast-edgeStyle);
     border-bottom-color: var(--oix-mast-edgeColor);
-    padding: 2px; /* DON'T CHANGE */
-    height: 2.6rem;
+    padding: 0.2rem; /* DON'T CHANGE */
+    height: 2.4rem;
 }
 
 .oix-mast_houseMark {
     color: var(--oix-mast-houseMarkColor);
     font-family: var(--font-family-accent);
-    font-size: 22px !important;
-    text-shadow: 1px 1px 0px var(--base-mid);
-    padding-top: 6px;
-    margin-right: -12px;
-    margin-left: 6px;
+    font-size: 1.4rem !important;
+    text-shadow: 0.05rem 0.05rem 0rem var(--oix-mast-houseMarkInsetColor);
+    padding-top: 0.5rem;
+    margin-right: -0.8rem;
+    margin-left: 0.4rem;
 }
 
 .oix-mast_proprietorMark {
-    color: var(--accent-lightest);
+    color: var(--oix-mast-proprietorMarkColor);
     font-family: var(--font-family-accent);
-    font-size: 19px !important;
-    text-shadow: 1px 1px 0px var(--base-mid);
-    padding-top: 6px;
-    margin-right: 0px;
-    margin-left: 6px;
+    font-size: 1.2rem !important;
+    text-shadow: 0.05rem 0.05rem 0rem var(--oix-mast-proprietorMarkInsetColor);;
+    padding-top: 0.5rem;
+    margin-right: 0.1rem;
+    margin-left: 0.5rem;
 }
 
 .oix-mast_storeFrontTitle {
-    color: var(--base-mid-2);
+    color: var(--color-darkB);
     font-weight: 500;
     font-size: 1rem;
-    text-shadow: 1px 1px 0px var(--light-accent);    
+    text-shadow: 0.05rem 0.05rem 0rem  var(--oix-mast-houseMarkInsetColor);   
 }
 
 .oix-mast_miniNavi {
     position: absolute;
-    right: 12px;
-    top: 9px;
+    right: 0.8rem;
+    top: 0.4rem;
 }
 
 .oix-mast_miniNavi a {
-    color: var(--base-mid-2);
+    color: var(--oix-mast-navColor);
     font-weight: 900;
-    font-size: 11px;
+    font-size: 0.7rem;
     text-decoration: none;
-    text-shadow: 1px 1px 0px var(--light-accent);
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    border: 1px solid var(--accent-light);
+    text-shadow: 0.05rem 0.05rem 0rem var(--iox-mast-navTextShadow);
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    border: 0.05rem var(--iox-mast-navBtnBorderStyle) var(--iox-mast-navBtnBorderColor);
     border-radius: 4px;
     box-shadow: 1px 1px 0px var(--base-mid);
     margin-left: 3px;
@@ -147,9 +160,9 @@ body {
   position: sticky; /* Makes it stick when scrolling */
   top: 0;
   padding: 5px;
-  background-image: linear-gradient(var(--base-dark-2), var(--base-dark-3));
+  background-image: var(--oix-navi-backgroundStyle);
   padding: 6px;    
-  border-right: 2px dotted var(--accent-mid);    
+  border-right: 0.15rem var(--oix-navi-borderStyle) var(--oix-navi-borderColor);    
   box-shadow: var(--effect-wild-glow);
 }
 
