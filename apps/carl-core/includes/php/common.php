@@ -8,6 +8,7 @@ $storeMark = $houseMark . $proprietorMark;
 $address = __DIR__ . '/../../pages/' . $storeMark . '/' . $deptMark . '/';
 $page_path = $address . $page_slug . '.' . $page_ext;
 $page_insert = file_exists($page_path) ? file_get_contents($page_path) : ''; 
+$dirInclude = __DIR__ . '/../../includes/';
 
 // CARL LOVES THE PARSEDOWN PARSER 
 require_once 'Parsedown.php';
@@ -29,13 +30,20 @@ if (!empty($path) && file_exists($path)) {
 }
 }
 
-function page_insert($content) {
-if (!empty($content)) {
-            if ($page_ext == 'md') {
-                echo render_md($text); 
-                } else {
-                    echo $page_insert;
-            } 
+function render_page_insert($page_insert, $page_ext) {
+    if (!empty($page_insert)) {
+        if ($page_ext === 'md') {
+            return render_md($page_insert);
+        } else {
+            return $page_insert;
         }
+    }
+    return '';
 }
+
+function call_dept_style($deptStyle, $storeMark, $deptMark) {
+if(!empty($deptStyle)) {
+            return '<link rel="stylesheet" 
+                href="/styles/' . $storeMark . '.' . $deptMark . '.css">';
+            } }
 ?>

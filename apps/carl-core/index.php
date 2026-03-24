@@ -11,13 +11,13 @@ $storeTitle = "the Carl Core Template";
 // "$page_title" = Title of the page. Keep $storeTitle to keep identity in tact
 // "$page_slug" = filename of a content file (NO LOGIC)
 // "$page_ext" = the file type of the slug. 
-// "$logic_insert" = load functional logic (!!!loaded after $page_slug currently!!!)
+// "$page_logic" = load functional logic (!!!loaded after $page_slug currently!!!)
 // "$deptStyle" = use in case of changes for Dept specific needs
 // ===============================================================|>
 
 $initiates = "";
 $scriptures = "";
-$logic_insert = "";
+$page_logic = "";
 $page_title = $storeTitle . ' Home';
 $page_slug = 'index';
 $page_ext = 'md';

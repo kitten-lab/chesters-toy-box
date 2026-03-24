@@ -1,9 +1,10 @@
-  <aside class="oix-navi">
+
+<aside class="oix-navi">
+  <nav>
   <div class="oix-navi-sectionContainer">
         <span class="oix-navi-sectionHead">CLIP</span>
         <span class="oix-navi-sectionSubHead">BOARDS</span>
     </div>
-    <nav>
       <ul>
         <li><a href="#">
         <span class="icon"><?= $ico_bins; ?></span>
@@ -21,12 +22,10 @@
         </span>
         </a></li>
         </ul>
-    </nav>
   <div class="oix-navi-sectionContainer">
         <span class="oix-navi-sectionHead">CLIPPER</span>
         <span class="oix-navi-sectionSubHead">KEEPER</span>
     </div>
-    <nav>
       <ul>
         <li>
         <a href="/import.php">
@@ -46,6 +45,5 @@
         <span class="oix-navi-sectionPlacement">Clipping Tag System
       </span>
         </a></li>
-      </ul>
-    </nav>
-  </aside>
+      </ul> 
+      </nav></aside>

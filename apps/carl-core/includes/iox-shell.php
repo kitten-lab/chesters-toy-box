@@ -1,54 +1,46 @@
 
 <!--// WELCOME THE INITIATES. PLEASE INCLUDE IF APPLICABLE -->
-<?php require_once __DIR__ . '/../includes/php/common.php'; ?>
+<?php require_once $dirInclude . 'php/common.php'; ?>
 <?php safe_include($initiates); ?>
 
-<!-- THE STANDARD OPENING PRAYER FOR THE PROVINENCE -->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title><?= $page_title ?></title>
-        <link rel="stylesheet" href="/styles/iox-core.css">
-        <link rel="stylesheet" href="/styles/fonts.css">
-        <link rel="stylesheet" href="/styles/<?= $storeMark; ?>.css">
-        <?php if(!empty($deptStyle)) {
-            echo '<link rel="stylesheet" href="/styles/' . $storeMark . '.' . $deptMark . '.css">';
-        } 
-        ?>
-        
+<!-- THE STANDARD OPENING PRAYER FOR THE PROVINENCE: -->
+    <!DOCTYPE html>
+    <html><head>
+    <title><?= $page_title ?></title>
+
+    <!-- THE CALLING OF THE STYLESHEET PROCESSION -->
+    <link rel="stylesheet" href="/styles/iox-core.css">
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <link rel="stylesheet" href="/styles/<?= $storeMark; ?>.css">
+        <?php echo call_dept_style($deptStyle); ?>
+
     </head>
-<body>
-
+    <body>
+<!-- END OPENING PRAYERS -->
 <!-- ENTER THE HEAD OF THE OIX which opens the room -->
-    <?php include __DIR__ . '/../includes/header.php'; ?>
-    <div class="iox_coreContainer">
+<?php include $dirInclude . 'header.php'; ?>
 
-<!-- THE NAVIGATION OF THE VESSEL PROPER -->
-    <?php include __DIR__ . '/../includes/nav.' . $storeMark . '.php'; ?>
+<!-- BEGIN NOW THE 'BODY OF THE DIVINE PAGE' -->
+<div class="iox_coreContainer">
 
-<!-- NOW WE MAKE CONTACT WITH CONTENT -->
-<main class="iox_coreContents">
-    <?php 
-        if (!empty($page_insert)) {
-            if ($page_ext == 'md') {
-                echo render_md($page_insert); 
-                } else {
-                    echo $page_insert;
-            } 
-        }
-        ?>
+    <!-- THE NAVIGATION OF THE VESSEL PROPER -->
+    <?php include $dirInclude . 'nav.' . $storeMark . '.php'; ?>
 
-    <?php safe_include($content_insert); ?>
-
+    <!-- NOW WE MAKE CONTACT WITH CONTENT -->
+    <main class="iox_coreContents">
+        <?php echo render_page_insert($page_insert, $page_ext); ?>
+        <?php safe_include($page_logic); ?>
     </main>
 
+</div>
+<!-- END NOW THE 'BODY OF THE DIVINE PAGE' -->
 <!-- REST HERE THE FOOT OF THE OIX which carry the last copy and rights -->
-    </div>
-    <?php include __DIR__ . '/../includes/footer.php'; ?>
+<?php include $dirInclude . 'footer.php'; ?>
 
 <!-- FINAL BLESSINGS OF THE FUNCTION -->
-    <?php safe_include($scriptures); ?>
+<?php safe_include($scriptures); ?>
 
 <!-- THE STANDARD CLOSING PRAYER OF ALL WORKS-->
 </body>
 </html>
+<!-- AMEN -->
