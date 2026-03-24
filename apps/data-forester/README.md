@@ -1,4 +1,7 @@
 # Data Forester v0.3 (coming next)
+
+![Static Badge](https://img.shields.io/badge/BUILD%20STATUS%20-%20PENDING%20CARL%20CORE%20-%20red)
+
 ## What is Data Forestry?
 
 A way to parse, manage, and tag various information spread across many different modes of thinking.
