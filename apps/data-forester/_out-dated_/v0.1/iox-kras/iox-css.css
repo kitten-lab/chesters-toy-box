@@ -1,0 +1,188 @@
+body {
+font-size: 1.4em;
+line-height: 25px;
+font-family: Mx437 IBM DOS ISO8, monospace;
+letter-spacing: 1px;
+text-shadow:
+0 0 2px blue,
+0 0 10px blue,
+0 0 20px blue;
+}
+.crt-text {
+font-family: "Jetbrains Mono", monospace;
+}
+.page-content .page-breadcrumb.breadcrumb {
+background-color: darkblue;
+border-top: 6px double blue !important;
+border-bottom: 2px double blue !important;
+}
+div.panel-body, .content {
+background-color: darkblue;
+border: 3px double blue !important;
+background-image: linear-gradient(to top, darkblue, blue)
+}
+.content-login {
+width: 500px !important;
+}
+.form-actions {
+background-color: transparent !important;
+}
+ul.page-sidebar-menu > li > a {
+border: none;
+background-image: linear-gradient(to top, darkblue, transparent)
+}
+.fieldtype-image-container {
+background-color: transparent;
+border: 0px;
+}
+.fieldtype-image-container img {
+width:auto;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: Jetbrains Mono, monospace !important;
+}
+div.page-content {
+background-color:midnightblue;
+background-size: 100% 3px;
+background-image: linear-gradient(rgba(0, 0, 0, 0.4) 2px, transparent 1px);
+}
+div.progress {
+background-color: #6c6e72;
+}
+ul.list-inline img {
+width: 200px;
+height: auto;
+margin: 13px;
+}
+div.caption {
+font-size: large;
+}
+.page-title {
+text-transform: uppercase;
+}
+div.listing-section-heading {
+border-bottom: 1px solid #6d6d6d9c;
+border-top: 1px solid #6d6d6d9c;
+padding: 5px;
+}`
+ul.listing-grid>li>li {
+border-bottom: 3px solid #0b9e12;
+font-weight: 600;
+}
+ul.listing-grid>li {
+border-radius: 0px;
+padding: 15px;
+background-color:darkblue;
+border: 1px solid darkblue;
+border-radius: 6px
+}
+ul.listing-grid>li:hover {
+background-image:radial-gradient(darkblue, midnightblue);
+border: 1px solid blue;
+}
+.bg-color-value {
+margin: 4px 0;
+font-size: xx-small;
+text-transform: uppercase;
+height: 29px;
+border: 1px solid #636363;
+}
+li a i {
+padding-top: 4px;
+}
+div.stats-overview {
+background-color: #0000ff87 !important;
+border: 3px blue solid !important;
+border-radius: 6px;
+}
+.content_box_content {
+border-top: 1px solid #ffffff24;
+padding: 15px; }
+h4.media-heading {
+padding: 10px;
+font-family: Jetbrains Mono, monospace !important;
+font-size: medium;
+height: 30px;
+border-bottom: 1px solid #6d6d6d9c;
+border-top: 1px solid #6d6d6d9c;
+}
+div.alert {
+background-color: #00008bbf;
+border: 2px solid blue;
+border-radius: 8px;
+padding: 23px;
+color: #ffffff94;
+}
+div.header {
+background-color: blue;
+background-size:100% 4px;
+border-bottom: 6px #00064957 solid;
+}
+span.badge-warning {
+height:21px !important;
+width: 33px !important;
+background-color:#0000006b;
+padding-top: 5px !important;
+margin-bottom: 6px;
+}
+.portlet > .portlet-title {
+background-color: #0000ff73 !important;
+border: 2px solid blue;
+margin: 4px;
+}
+.portlet > .portlet-body {
+background-color: transparent !important;
+border: 2px solid blue;
+margin: 4px;
+}
+.portlet {
+border: 1px solid blue;
+}
+button.btn, button.btn.btn-default, .btn-default {
+background-color: blue !important;
+border: 3px double darkblue !important;
+}
+button.btn:hover, button.btn.btn-default:hover, .btn-default:hover  {
+background-color: blue !important;
+border: 3px double #0065ff !important;
+}
+.form-control {
+background-color: #00005c4d;
+border: 3px double blue !important;
+height: 38px
+}
+.page-sidebar-menu, .page-content-wrapper {
+background-color: blue !important;
+background-size: 100% 3px;
+background-image: linear-gradient(rgba(0, 0, 0, 0.4) 2px, transparent 1px);
+}
+.table-scrollable th, .table-scrollable tr {
+background-color: darkblue !important;
+border: none !important;
+background-image: linear-gradient(to top, rgb(0 0 0 / 15%), transparent);
+margin: 5px !important;
+}
+.navbar-collapse {
+background-color: darkblue;
+border: 0px double blue !important;
+}
+.navbar-default {
+border: 1px blue solid !important;
+}
+.navbar-items .navbar-brand {
+background-color: blue !important;
+background-image: linear-gradient(to top, rgb(0 0 0 / 53%), transparent);
+border: none !important;
+margin: 3px;
+font-weight: 700;
+text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li.selected > a {
+border-bottom: double 4px goldenrod;
+background-color: darkblue !important;
+color: goldenrod
+}
+.navbar-default .navbar-nav > li > a {
+border: double 4px blue;
+background-color: darkblue !important;
+}
