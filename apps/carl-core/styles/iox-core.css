@@ -1,15 +1,17 @@
 :root {
 
     --color-darkA: rgba(81,91,47, 1.0);
-    --color-darkB: rgba(178,117,55, 1.0);
-    --color-midB: rgba(212, 163, 115, 1.0);
-    --color-midA: rgba(204, 213, 174, 1.0);
+    --color-darkB: rgb(105, 79, 53);
+    --color-midB: rgb(209, 176, 143);
+    --color-midA: rgb(184, 201, 130);
     --color-lightA: rgba(233, 237, 201, 1.0);
     --color-lightB: rgba(250, 237, 205, 1.0);
     --color-accentA: rgba(254, 250, 224, 1.0);
     --color-bright: rgba(221, 229, 182, 1.0);
     --color-unexpectedA: rgba(152, 245, 225, 1.0);    
-    --color-accentB: rgba(208, 140, 96, 1.0);
+    --color-accentB: rgb(214, 231, 185);
+    --color-pure-white: #ffffff;
+    --color-pure-black: #000000;
 
     --oix-core-backgroundImage: radial-gradient(circle at center, var(--color-midA) 1px, transparent 0);
     --iox-core-ContainerBorderColor: var(--color-darkB);
@@ -28,29 +30,41 @@
     --oix-mast-proprietorMarkInsetColor: var(--color-darkA);
 
     --oix-mast-navColor: var(--color-darkA);
+    --oix-mast-navColorHover: var(--color-darkB);
     --iox-mast-navTextShadow: var(--color-unexpectedA);
+    --iox-mast-navTextShadowHover: var(--color-accentA);
+    --iox-mast-navBtnBorderColor: var(--color-accentA);
+    --iox-mast-navBtnBorderColorHover: var(--color-unexpectedA);
+    --iox-mast-navBtnBorderStyle: dotted;
+    --iox-mast-navBtnBorderStyleHover: solid;
 
-    --oix-navi-sectionHead-color: var(--color-darkA);
-    --oix-navi-sectionSubHead-color: var(--color-midB);
+
+    --iox-navi-headerInsetColor: var(--color-bright);
+
+
+    --oix-navi-sectionHead-color: var(--color-darkB);
+    --oix-navi-sectionSubHead-color: var(--color-dark);
     --oix-navi-backgroundStyle: linear-gradient(var(--color-midA), var(--color-lightA), var(--color-midA));
     --oix-navi-borderColor: var(--color-midA);
     --oix-navi-borderStyle: dotted;
     
-    --iox-mast-navBtnBorderColor: var(--color-accentA);
-    --iox-mast-navBtnBorderStyle: dotted;
-    
+    --oix-navi-btnBorderColor: var(--color-lightA);
+    --oix-navi-btnBorderStyle: solid;
+    --oix-navi-btnShadowColor: var(--color-midA);
+    --oix-navi-btnLabelColor: var(--color-darkB);
+    --oix-navi-btnBackground: none;
+
+    --oix-navi-btnTextColorHover:var(--color-darkB);
+    --oix-navi-btnShadowColorHover:var(--color-accentB);
+    --oix-navi-btnBorderStyleHover:dotted;
+    --oix-navi-btnBorderColorHover:var(--color-accentA);
+
     --font-family-accent: 'Mona Sans Black', 'Inter';
     --font-family-standard: 'Mona Sans', 'Inter';
-    --pure-white: #ffffff;
-    --pure-black: #000000;
     --grid-background: var(--color-lightA);
 
 /* ~~~~~~ EFFECT STYLINGS ~~~~~~ */
     --effect-wild-glow: 0rem 0rem 4rem var(--color-unexpectedA);
-}
-
-[data-store="JXCC"] {
-
 }
 
 /* ===== PRIME OPERANTS ===== */
@@ -143,131 +157,104 @@ body {
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
     border: 0.05rem var(--iox-mast-navBtnBorderStyle) var(--iox-mast-navBtnBorderColor);
-    border-radius: 4px;
-    box-shadow: 1px 1px 0px var(--base-mid);
+    border-radius: 0.25rem;
+    box-shadow: 0.05rem 0.05rem 0rem var(--oix-mast-navColor);
     margin-left: 3px;
 }
 
 .oix-mast_miniNavi a:hover {
     background-color: rgba(255, 255, 255, 0.15);
-    color: var(--base-dark)
+    color: var(--oix-mast-navColorHover);
+    box-shadow: 0.05rem 0.05rem 0rem var(--oix-mast-navColorHover);
+    border: 0.05rem var(--iox-mast-navBtnBorderStyleHover) var(--iox-mast-navBtnBorderColorHover);
 }
 
 /* ===================== OIX PRIMARY NAVIGATION (DEFAULT: LEFT) =================== */
 
 .oix-navi {
-  width: 220px; /* Fixed width */
+  width: 15rem; /* Fixed width */
   position: sticky; /* Makes it stick when scrolling */
   top: 0;
-  padding: 5px;
   background-image: var(--oix-navi-backgroundStyle);
-  padding: 6px;    
+  padding: 0.5rem;    
   border-right: 0.15rem var(--oix-navi-borderStyle) var(--oix-navi-borderColor);    
   box-shadow: var(--effect-wild-glow);
 }
 
 
-.oix-navi-sectionContainer {
-    color: var(--base-mid-2);
-    font-weight: 500;
-    font-size: 16px;
-    text-shadow: 1px 1px 0px var(--light-accent);
-}
-
 .oix-navi-sectionHead {
-    padding-top: 6px;
+    padding-top: 0.5rem;
     font-family: var(--font-family-accent);
-    font-size: 22px !important;
+    font-size: 1.3rem !important;
     color: var(--oix-navi-sectionHead-color);
-    margin-right: -12px;
-    text-shadow: 1px 1px 0px var(--base-mid);
-    margin-left: 6px;
+    margin-right: -0.8rem;
+    text-shadow: 0.05rem 0.05rem 0rem var(--iox-navi-headerInsetColor);
+    margin-left: 0.5rem;
 }
 
 .oix-navi-sectionSubHead {
-    padding-top: 6px;
+    padding-top: 0.5rem;
     font-family: var(--font-family-accent);
-    font-size: 18px !important;
+    font-size: 1.0rem !important;
     color: var(--oix-navi-sectionSubHead-color);
-    margin-right: -12px;
-    text-shadow: 1px 1px 0px var(--base-mid);
-    margin-left: 6px;
+    margin-right: -0.8rem;
+    text-shadow: 0.05rem 0.05rem 0rem var(--iox-navi-headerInsetColor);
+    margin-left: 0.5rem;
 }
 
 .oix-navi-sectionPlacement {
     position: absolute;
-    margin-left: 6px;
+    margin-left: 0.5rem;
 }
-
 
 .oix-navi ul {
   list-style-type: none; /* Removes bullet points */
   padding: 0; 
   margin: 0;
-  margin-top: 12px;
+  padding-top: 0.5rem;
 }
 
 .oix-navi li {
-  margin-bottom: 10px;
-
-}
-
-.oix-navi a {
-  display: block;
-    text-decoration: none;
-    color: var(--accent-light);
+    margin-bottom: 0.3rem;
+    background: none;
     font-weight: 900;
-    font-size: 12px;
-    
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    border: dotted 1px var(--base-dark);
-    box-shadow: 2px 2px 2px #00000033;
+    font-size: 0.7rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.05rem;
+    border: var(--oix-navi-btnBorderStyle) 1px var(--oix-navi-btnBorderColor);
+    box-shadow: 0.05rem 0.05rem 0.06rem var(--oix-navi-btnShadowColor);
 }
 
+.oix-navi li a {
+    color: var(--oix-navi-btnLabelColor);
+    display: block;
 
-
-.oix-navi-sectionContainer a {
-    margin-left: 3px;
-    text-decoration: none;
-    color: var(--base-mid-2);
-    text-shadow: 1px 1px 0px var(--light-accent);
-    font-weight: 900;
-    font-size: 11px;
-    border-radius: 4px;
-    border: 1px solid var(--accent-light);
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    box-shadow: 1px 1px 0px var(--base-mid);
 }
 
+.oix-navi li a:hover {
+    color: var(--oix-navi-btnTextColorHover);
+}
 
-.oix-navi-sectionContainer a:hover {
+.oix-navi li:hover {
     background-color: rgba(255, 255, 255, 0.15);
-    color: var(--base-dark)
+    box-shadow: 0.05rem 0.05rem 0rem var(--oix-navi-btnShadowColorHover);
+    border: 0.05rem var(--oix-navi-btnBorderStyleHover) var(--oix-navi-btnBorderColorHover);
 }
 
-/* ================================================================== */
-
-.icon svg {
-    width: 16px;
-    height: 16px;
+.oix-navi .icon svg {
+    width: 1rem;
+    height: 1rem;
     display: inline-block;
-    margin-top: 2px;
-    stroke-width: 1.25 !important;
+    margin-top: .3rem;
+    stroke-width: 1 !important;
     opacity: 0.5;
 }
 
 
-
-
-
 /* ===== FOOTER ===== */
-.nn_footer {
+.oix-footer {
     border-top: 1px dotted var(--accent-mid-2);
     font-size: 12px;
     background-image: linear-gradient(var(--accent-light), var(--accent-mid));
@@ -281,18 +268,18 @@ body {
     box-shadow: -1px -1px 2px var(--accent-light-2);
 }
 
-.nn_footer a {
+.oix-footer a {
     text-decoration: none;
     color: var(--base-dark);
     font-weight: 500;
 }
 
-.nn_footer a:hover {
+.oix-footer a:hover {
     text-decoration: underline;
 }
 
 
-.nn_footerTagline {
+.oix-footerTagline {
     display: inline-block;
     font-size: 11px;
     opacity: 0.7;
@@ -303,106 +290,25 @@ body {
 
 
 
-/* Style the list items and links */
-
-
-
-
-/* ===== BUTTONS ===== */
-button {
-    display: inline-block;
-    background: #f0f4f8;
-    text-decoration: none;
-    color: #aaa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 5px 5px;
-    cursor: pointer;
-    font-size: 12px;
-    transition: all 0.15s ease;
-    margin: 2px;
+.oix-footerLogo {
+    color: var(--oix-mast-houseMarkColor);
+    font-family: var(--font-family-accent);
+    font-size: 1.4rem !important;
+    text-shadow: 0.05rem 0.05rem 0rem var(--oix-mast-houseMarkInsetColor);
+    padding-top: 0.5rem;
+    margin-right: -0.8rem;
+    margin-left: 0.4rem;
 }
 
-.btn {
-    
-    display: inline-block;
-    background: #f0f4f8;
-    text-decoration: none;
-    color: #aaa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    transition: all 0.15s ease;
-    margin: 2px;
-    padding: 2px !important;
-    text-align: center;
-    text-decoration:none;
-    font-size: 11px;
+.oix-footerSubLogo {
+    color: var(--oix-mast-proprietorMarkColor);
+    font-family: var(--font-family-accent);
+    font-size: 1.2rem !important;
+    text-shadow: 0.05rem 0.05rem 0rem var(--oix-mast-proprietorMarkInsetColor);;
+    padding-top: 0.5rem;
+    margin-right: 0.1rem;
+    margin-left: 0.5rem;
 }
-
-button:hover {
-    background: #f0f4f8;
-}
-
-
-/* ===== FORM BOX ===== */
-.form-box {
-    background: #f7f9fb;
-    border: 1px solid #e1e4e8;
-    border-radius: 10px;
-    padding: 15px;
-    max-width: 700px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-
-/* ===== TEXTAREA ===== */
-textarea {
-    width: 95%;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 10px;
-    font-size: 14px;
-    resize: vertical;
-    outline: none;
-}
-
-textarea:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 0 2px rgba(76,175,80,0.15);
-}
-
-/* ===== INPUT ===== */
-input[type="text"],
-input[type="number"] {
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 6px 8px;
-    font-size: 13px;
-    outline: none;
-}
-input[placeholder="add tags..."] {
-    background: #fafafa;
-}
-
-input {
-    width: 60;
-}
-
-input:focus {
-    border-color: #4CAF50;
-}
-
-
-/* ===== LABELS ===== */
-label {
-    font-size: 12px;
-    color: #666;
-    display: block;
-    margin-bottom: 4px;
-}
-
 
 
 /* {
