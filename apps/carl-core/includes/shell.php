@@ -5,42 +5,41 @@
 
 <!-- THE STANDARD OPENING PRAYER FOR THE PROVINENCE -->
 <!DOCTYPE html>
-<html>
-    <head>
-        <title><?= $page_title ?></title>
+<html><head>
+<title><?= $page_title ?></title>
+
     <!-- THE CALLING OF THE STYLESHEET PROCESSION -->
-        <link rel="stylesheet" href="/styles/iox-core.css">
-        <link rel="stylesheet" href="/styles/fonts.css">
-        <link rel="stylesheet" href="/styles/<?= $storeMark; ?>.css">
-        <?php echo call_dept_style($deptStyle, $storeMark, $deptMark); ?>
+    <link rel="stylesheet" href="/styles/iox-core.css">
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <link rel="stylesheet" href="/styles/<?= $storeMark; ?>.css">
+    <?php echo call_dept_style($deptStyle, $storeMark, $deptMark); ?>
         
-    </head>
+</head>
 <body>
 <!-- END OPENING PRAYERS -->
 <!-- ENTER THE HEAD OF THE OIX which opens the room -->
-    <?php include $dirInclude . 'header.php'; ?>
+<?php include $dirInclude . 'header.php'; ?>
 
-<!-- BEGIN NOW THE 'BODY OF THE DIVINE PAGE' -->
+    <!-- BEGIN NOW THE 'BODY OF THE DIVINE PAGE' -->
     <div class="iox_coreContainer">
 
-<!-- THE NAVIGATION OF THE VESSEL PROPER -->
-    <?php include $dirInclude . 'nav.' . $storeMark . '.php'; ?>
+        <!-- THE NAVIGATION OF THE VESSEL PROPER -->
+        <?php include $dirInclude . 'nav.' . $storeMark . '.php'; ?>
 
-<!-- NOW WE MAKE CONTACT WITH CONTENT -->
-<main class="iox_coreContents">
-        <?php echo render_page_insert($page_insert, $page_ext); ?>
+        <!-- NOW WE MAKE CONTACT WITH CONTENT -->
+        <main class="iox_coreContents">
+            <?php echo render_page_insert($page_insert, $page_ext); ?>
+            <?php safe_include($page_logic); ?>
+        </main>
 
-    <?php safe_include($page_logic); ?>
-
-    </main>
-
-<!-- END NOW THE 'BODY OF THE DIVINE PAGE' -->
-<!-- REST HERE THE FOOT OF THE OIX which carry the last copy and rights -->
     </div>
-    <?php include $dirInclude . 'footer.php'; ?>
+    <!-- END NOW THE 'BODY OF THE DIVINE PAGE' -->
+
+<!-- REST HERE THE FOOT OF THE OIX which carry the last copy and rights -->
+<?php include $dirInclude . 'footer.php'; ?>
 
 <!-- FINAL BLESSINGS OF THE FUNCTION -->
-    <?php safe_include($scriptures); ?>
+<?php safe_include($scriptures); ?>
 
 <!-- THE STANDARD CLOSING PRAYER OF ALL WORKS-->
 </body>
