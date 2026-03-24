@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/styles/fonts.css">
         <link rel="stylesheet" href="/styles/<?= $storeMark; ?>.css">
         <?php if(!empty($deptStyle)) {
-            echo '<link rel="stylesheet" href="/styles/' . $storeMark . '-' . $deptMark . '.css">';
+            echo '<link rel="stylesheet" href="/styles/' . $storeMark . '.' . $deptMark . '.css">';
         } 
         ?>
         

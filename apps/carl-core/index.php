@@ -21,7 +21,7 @@ $logic_insert = "";
 $page_title = $storeTitle . ' Home';
 $page_slug = 'index';
 $page_ext = 'md';
-$deptStyle = true;
+$deptStyle = false;
 
 include 'includes/shell.php';
 ?>
