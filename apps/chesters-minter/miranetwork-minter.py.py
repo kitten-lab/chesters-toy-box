@@ -67,7 +67,7 @@ def generate_kven():
         else:
             return random_sigil()
 
-    return f"|K {part1}-{part2} ꓘ|.:{generate_sigil()}:."
+    return f"\033[90m|K \u001b[92m{part1}-{part2}\033[90m ꓘ|\u001b[0m" #" | .:{generate_sigil()}:."
     print();
 def random_cluster(width=7):
     return ''.join(random.choice(kras) for _ in range(width))
@@ -76,7 +76,7 @@ def random_cluster(width=7):
 def animate_gate():
     idx = 0
     while True:
-        sys.stdout.write("\r                                  " + generate_kven() + "|K")
+        sys.stdout.write("\r                                  " + generate_kven() + "")
         sys.stdout.flush()
         time.sleep(0.05)
 
