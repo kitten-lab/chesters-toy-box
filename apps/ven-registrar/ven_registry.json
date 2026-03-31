@@ -1,0 +1,38 @@
+{
+  "entries": [
+    {
+      "kven": "SDK-808",
+      "label": "Sam-I-Am",
+      "alts": [
+        "Sam Rosewater",
+        "SDK-808"
+      ],
+      "matches": [
+        "Sam",
+        "SDK",
+        "Sam.exe"
+      ],
+      "type": "",
+      "notes": "",
+      "created": "2026-03-31T16:17:46.839907+00:00"
+    },
+    {
+      "kven": "exit",
+      "label": "",
+      "alts": [],
+      "matches": [],
+      "type": "",
+      "notes": "",
+      "created": "2026-03-31T16:18:57.951210+00:00"
+    },
+    {
+      "kven": "",
+      "label": "",
+      "alts": [],
+      "matches": [],
+      "type": "",
+      "notes": "",
+      "created": "2026-03-31T16:19:38.487706+00:00"
+    }
+  ]
+}

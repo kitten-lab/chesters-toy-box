@@ -6,29 +6,6 @@ import readline #and-remember-yourself
 import json #momoa...?
 import textwrap #and wroll
 
-
-print(r"""
-
-
-
-      ======================================================
-      
-           ___           ___                       ___      
-          /  /\         /  /\                     /  /\     
-         /  /::\       /  /::\         ___       /  /::|    
-        /  /:/\:\     /__/:/\:\       /__/\     /  /:|:|    
-       /  /::\ \:\    \  \:\ \:\      \__\:\   /  /:/|:|__  
-      /__/:/\:\_\:\ ___\__\:\_\:\     /  /::\ /__/:/_|::::\ 
-      \__\/  \:\/:/ \  \:::::\/:/  __/  /:/\/ \__\/  /~~/:/ 
-           \__\::/   ~~~~\~~\::/  /__/\/:/~~        /  /:/  
-           /  /:/        /~~/:/   \  \::/          /  /:/   
-          /__/:/        /__/:/     \  \:\         /__/:/    
-          \__\/         \__\/       \__\/         \__\/     
-
-             ꓘ R A Q U A I 1 3 . 9.808 . ɯᴉɹɐ ɐᴉpɯ
-      ======================================================
-""")
-
 ANI = ['A', 'B', 'S', 'D', 'K', 'I', 'Q', 'X', 'E', 'P', 'L', 'W']
 ani = ['a', 'b', 'c', 'd','e','f','g','h','i','j']
 quai = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -67,8 +44,11 @@ def generate_kven():
         else:
             return random_sigil()
 
-    return f"\033[90m|K \u001b[92m{part1}-{part2}\033[90m ꓘ|\u001b[0m" #" | .:{generate_sigil()}:."
-    print();
+    return part1 + part2
+
+def printer():
+        print("\033[90m|K \u001b[92m{part1}-{part2}\033[90m ꓘ|\u001b[0m" " | .:{generate_sigil()}:.")
+
 def random_cluster(width=7):
     return ''.join(random.choice(kras) for _ in range(width))
     
@@ -88,18 +68,3 @@ def mint_kven():
     animate_gate()
     sys.stdout.write("\r    t-ꓘven.gen: Success!\n")
     sys.stdout.flush()
-
-def main():
-    print("\n   Press ENTER to mint a ꓘVEN.")
-    print("     Type 'end' to exit.\n")
-
-    while True:
-        cmd = input("  MINTER ꓘ|K   ")
-
-        if cmd.lower() == "end":
-            print("   Shutting down generator.")
-            break
-
-        mint_kven()
-
-main()

@@ -1,6 +1,6 @@
 # R2MIRA
 ![OIX STATUS](https://img.shields.io/badge/OIX-ACTIVE-black)
-![CARL](https://img.shields.io/badge/CARL-STABILIZING-blue)
+![CARL|122](https://img.shields.io/badge/CARL-STABILIZING-blue)
 ![FORESTER](https://img.shields.io/badge/FORESTER-PENDING-red)
 ![STATE](https://img.shields.io/badge/STATE-SAWMILL%20NOT%20BUILT-orange)
 ![PIPELINE](https://img.shields.io/badge/PIPELINE-LOG→TIMBER→TAG-8a2be2)
