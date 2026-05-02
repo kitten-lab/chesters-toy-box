@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<style>
+.game-screen {
+position: relative;
+display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 1024px;
+  border: 1px solid white;
+}
+.tile {
+    height: 50px;
+    width: 50px;
+    border: 1px solid red;
+    flex: 0 0 20%; 
+    box-sizing: border-box;
+}
+.reels {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+}
+</style>
+
+    </head>
+<body style="font-family: monospace; background:#111; color:#eee; text-align:center;">
+
+<h2>THE OFFICE</h2>
+<div class="game-screen">
+<div id="reels" class="reels"></div>
+
+<button onclick="spin()">SPIN</button>
+<div class="story">
+<p id="customer"></p>
+<p id="case"></p>
+<p id="clue"></p>
+</div>
+</div>
+<script>
+const symbols = ["KEY", "GLASS", "NOTE", "DOOR", "HAND", "1", "2", "3", "4", "5"]
+
+let currentCase = null
+let clueIndex = 0
+
+const cases = [
+  {
+    title: "The Woman in the Red Dress",
+    customer: "The Unattended Lady",
+    clues: [
+      "I was told they would be there. No one arrived.",
+      "The table was reserved. No name attached.",
+      "She kept checking the door.",
+      "Two glasses. One untouched.",
+      "Someone paid before she got there."
+    ]
+  },
+  {
+    title: "The Man Who Never Left",
+    customer: "The Hotel Manager",
+    clues: [
+      "He checked in three nights ago.",
+      "Room's empty. Always is.",
+      "Key keeps turning up at the desk.",
+      "No one saw him leave.",
+      "The bed is still warm."
+    ]
+  }
+]
+
+function spin() {
+  // render 5x3 grid
+  let output = ""
+  for (let i = 0; i < 15; i++) {
+    let rand = Math.floor(Math.random() * symbols.length)
+    output += "<div class='tile'>" + symbols[rand] + "</div>"
+    if ((i + 1) % 5 === 0) output += "<br>"
+  }
+  document.getElementById("reels").innerHTML = output
+
+  // 20% chance to trigger or progress case
+  if (Math.random() < 0.2) {
+    if (!currentCase) {
+      currentCase = cases[Math.floor(Math.random() * cases.length)]
+      clueIndex = 0
+      document.getElementById("case").innerText = "CASE: " + currentCase.title
+      document.getElementById("customer").innerText = "CUSTOMER: " + currentCase.customer
+    }
+
+    if (clueIndex < currentCase.clues.length) {
+      document.getElementById("clue").innerText = currentCase.clues[clueIndex]
+      clueIndex++
+    } else {
+      document.getElementById("clue").innerText = "Case closed."
+      currentCase = null
+    }
+  }
+}
+</script>
+
+</body>
+</html>
